@@ -28,6 +28,11 @@ ROAD_RAISE_M = 0.1            # 道路上面を地面から持ち上げる量[m]
 MIN_BUILDING_AREA_M2 = 3.0    # これ未満の建物は除外
 VT_ZOOM = 16                  # ベクトルタイルのズーム(最大16)
 OUT_STEM = "isiyama_closeup_mm"
+for _a in sys.argv[1:]:  # 例: --lat=34.66 --lon=133.93 --size=600 --out=name
+    if _a.startswith("--lat="): CENTER_LAT = float(_a[6:])
+    elif _a.startswith("--lon="): CENTER_LON = float(_a[6:])
+    elif _a.startswith("--size="): SIZE_M = float(_a[7:])
+    elif _a.startswith("--out="): OUT_STEM = _a[6:]
 # 建物の仮定高さ[m] : (面積上限m2, 高さ)の表。 ftCode 3101=普通建物 3102=堅ろう建物 3111/3112=無壁舎
 BUILDING_HEIGHTS = {
     3101: [(50, 3.5), (200, 6.5), (600, 9.0), (1e12, 12.0)],
@@ -217,7 +222,10 @@ def prism(poly, bottom_fn, top_fn):
     top = v[:, 2] > 0.5
     v[top, 2] = top_fn(v[top, 0], v[top, 1])
     v[~top, 2] = bottom_fn(v[~top, 0], v[~top, 1])
-    return trimesh.Trimesh(v, m.faces, process=False)
+    out = trimesh.Trimesh(v, m.faces, process=True)
+    if not out.is_watertight:
+        trimesh.repair.fill_holes(out)
+    return out
 
 
 def building_height(code, area):
