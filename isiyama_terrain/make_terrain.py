@@ -84,7 +84,7 @@ def fetch_tile(z, x, y):
     return np.full((256, 256), np.nan)
 
 
-def build_dem(half_m, nx, ny, pitch):
+def build_dem(half_m, nx, ny, pitch, fill=True):
     """中心からの局地メートル座標グリッド上の標高(ny,nx)を返す。行0=南端。"""
     xs = (np.arange(nx) - (nx - 1) / 2) * pitch
     ys = (np.arange(ny) - (ny - 1) / 2) * pitch
@@ -111,7 +111,7 @@ def build_dem(half_m, nx, ny, pitch):
     h = (mos[j0, i0] * (1 - fu) * (1 - fv) + mos[j0, i0 + 1] * fu * (1 - fv)
          + mos[j0 + 1, i0] * (1 - fu) * fv + mos[j0 + 1, i0 + 1] * fu * fv)
     nan_ratio = np.isnan(h).mean()
-    if nan_ratio:
+    if fill and nan_ratio:
         print(f"無効値(水域/欠測)の割合: {nan_ratio:.1%} → 範囲内の最低標高で補完")
         h = np.where(np.isnan(h), np.nanmin(h), h)
     return xs, ys, h

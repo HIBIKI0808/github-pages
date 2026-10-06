@@ -2,3 +2,8 @@ numpy
 requests
 trimesh
 pillow
+scipy
+shapely
+mapbox-vector-tile
+mapbox-earcut
+matplotlib
