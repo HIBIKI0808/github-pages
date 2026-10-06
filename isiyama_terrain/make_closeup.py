@@ -288,6 +288,63 @@ def write_dae(objs, stem):
     mesh.write(str(HERE / f"{stem}.dae"))
 
 
+def write_dxf(objs, stem):
+    """AutoCAD DXF(3Dポリフェースメッシュ、種別ごとにレイヤ分け、単位mm)。"""
+    import ezdxf
+    doc = ezdxf.new("R2010", setup=True)
+    doc.units = ezdxf.units.MM
+    for i, (cat, kd) in enumerate(MATERIALS.items()):
+        doc.layers.add(cat, true_color=ezdxf.colors.rgb2int(tuple(int(c * 255) for c in kd)))
+    msp = doc.modelspace()
+    for name, cat, m in objs:
+        v = m.vertices * UNIT_PER_M
+        pf = msp.add_polyface(dxfattribs={"layer": cat})
+        pf.append_faces([[tuple(v[i]) for i in f] for f in m.faces], dxfattribs={"layer": cat})
+        pf.dxf.handle  # noqa: B018
+    doc.saveas(str(HERE / f"{stem}.dxf"))
+
+
+def write_ifc(objs, stem, rows):
+    """IFC4(三角形分割ジオメトリ、単位mm)。地形=IfcGeographicElement、その他=IfcBuildingElementProxy。"""
+    import ifcopenshell
+    import ifcopenshell.api as api
+    f = api.run("project.create_file", version="IFC4")
+    proj = api.run("root.create_entity", f, ifc_class="IfcProject", name="Isiyama close-up")
+    api.run("unit.assign_unit", f, length={"is_metric": True, "raw": "MILLIMETERS"})
+    ctx = api.run("context.add_context", f, context_type="Model")
+    body = api.run("context.add_context", f, context_type="Model", context_identifier="Body",
+                   target_view="MODEL_VIEW", parent=ctx)
+    site = api.run("root.create_entity", f, ifc_class="IfcSite", name="Site")
+    api.run("aggregate.assign_object", f, products=[site], relating_object=proj)
+    styles = {}
+    for cat, kd in MATERIALS.items():
+        st = api.run("style.add_style", f, name=cat)
+        api.run("style.add_surface_style", f, style=st, ifc_class="IfcSurfaceStyleShading",
+                attributes={"SurfaceColour": {"Name": None, "Red": kd[0], "Green": kd[1], "Blue": kd[2]}})
+        styles[cat] = st
+    info = {r[0]: r for r in rows}
+    prods = []
+    for name, cat, m in objs:
+        if cat == "Terrain":
+            p = api.run("root.create_entity", f, ifc_class="IfcGeographicElement", name=name, predefined_type="TERRAIN")
+        else:
+            p = api.run("root.create_entity", f, ifc_class="IfcBuildingElementProxy", name=name)
+            p.ObjectType = cat
+        v = (m.vertices * UNIT_PER_M).astype(float)
+        pts = f.createIfcCartesianPointList3D([tuple(map(float, x)) for x in v])
+        fs = f.createIfcTriangulatedFaceSet(pts, None, None, [tuple(int(i) + 1 for i in t) for t in m.faces])
+        rep = f.createIfcShapeRepresentation(body, "Body", "Tessellation", [fs])
+        p.Representation = f.createIfcProductDefinitionShape(None, None, [rep])
+        api.run("geometry.edit_object_placement", f, product=p)
+        api.run("style.assign_item_style", f, item=fs, style=styles[cat])
+        if name in info and info[name][4]:
+            ps = api.run("pset.add_pset", f, product=p, name="Isiyama_Source")
+            api.run("pset.edit_pset", f, pset=ps, properties={"Category": cat, "Note": info[name][4]})
+        prods.append(p)
+    api.run("spatial.assign_container", f, products=prods, relating_structure=site)
+    f.write(str(HERE / f"{stem}.ifc"))
+
+
 def main():
     print(f"中心 ({CENTER_LAT}, {CENTER_LON}) / 範囲 {SIZE_M:g}m角 / 単位 1={1000 / UNIT_PER_M:g}mm")
     feats = collect(fetch_vector_tiles())
@@ -351,6 +408,8 @@ def main():
     nw = [name for name, _, m in objs if not (m.is_watertight and m.volume > 0)]
     write_obj(objs, OUT_STEM)
     write_dae(objs, OUT_STEM)
+    write_dxf(objs, OUT_STEM)
+    write_ifc(objs, OUT_STEM, rows)
     with open(HERE / f"{OUT_STEM}_objects.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(["name", "category", "area_m2", "height_or_thickness_m", "note"])

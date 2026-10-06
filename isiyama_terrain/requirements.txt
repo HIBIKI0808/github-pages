@@ -8,3 +8,5 @@ mapbox-vector-tile
 mapbox-earcut
 matplotlib
 pycollada
+ezdxf
+ifcopenshell
