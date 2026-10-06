@@ -1,0 +1,1027 @@
+﻿name,category,area_m2,height_or_thickness_m,note
+Terrain,Terrain,,,
+Water_01,Water,40660.9,1.5,水面標高 1.43m
+Water_02,Water,419.4,1.5,水面標高 4.77m
+Water_03,Water,8033.8,1.5,水面標高 4.87m
+Water_04,Water,2339.7,1.5,水面標高 1.59m
+Water_05,Water,238.0,1.5,水面標高 12.49m
+Water_06,Water,53.3,1.5,水面標高 12.44m
+Water_07,Water,153.3,1.5,水面標高 10.93m
+Water_08,Water,60.3,1.5,水面標高 -0.87m
+Water_09,Water,78.0,1.5,水面標高 10.84m
+Bldg_0001,Building_Normal,3956.6,12.0,ftCode 3101 高さは仮定
+Bldg_0002,Building_Normal,2181.0,12.0,ftCode 3101 高さは仮定
+Bldg_0003,Building_Normal,2134.2,12.0,ftCode 3101 高さは仮定
+Bldg_0004,Building_Normal,1038.9,12.0,ftCode 3101 高さは仮定
+Bldg_0005,Building_Normal,875.8,12.0,ftCode 3101 高さは仮定
+Bldg_0006,Building_Normal,735.4,12.0,ftCode 3101 高さは仮定
+Bldg_0007,Building_Normal,704.2,12.0,ftCode 3101 高さは仮定
+Bldg_0008,Building_Normal,416.4,9.0,ftCode 3101 高さは仮定
+Bldg_0009,Building_Normal,327.6,9.0,ftCode 3101 高さは仮定
+Bldg_0010,Building_Normal,276.5,9.0,ftCode 3101 高さは仮定
+Bldg_0011,Building_Normal,254.4,9.0,ftCode 3101 高さは仮定
+Bldg_0012,Building_Normal,248.8,9.0,ftCode 3101 高さは仮定
+Bldg_0013,Building_Normal,245.3,9.0,ftCode 3101 高さは仮定
+Bldg_0014,Building_Normal,241.8,9.0,ftCode 3101 高さは仮定
+Bldg_0015,Building_Normal,241.4,9.0,ftCode 3101 高さは仮定
+Bldg_0016,Building_Normal,229.9,9.0,ftCode 3101 高さは仮定
+Bldg_0017,Building_Normal,227.5,9.0,ftCode 3101 高さは仮定
+Bldg_0018,Building_Normal,223.8,9.0,ftCode 3101 高さは仮定
+Bldg_0019,Building_Normal,214.3,9.0,ftCode 3101 高さは仮定
+Bldg_0020,Building_Normal,205.0,9.0,ftCode 3101 高さは仮定
+Bldg_0021,Building_Normal,201.0,9.0,ftCode 3101 高さは仮定
+Bldg_0022,Building_Normal,196.3,6.5,ftCode 3101 高さは仮定
+Bldg_0023,Building_Normal,195.7,6.5,ftCode 3101 高さは仮定
+Bldg_0024,Building_Normal,195.0,6.5,ftCode 3101 高さは仮定
+Bldg_0025,Building_Normal,191.0,6.5,ftCode 3101 高さは仮定
+Bldg_0026,Building_Normal,190.6,6.5,ftCode 3101 高さは仮定
+Bldg_0027,Building_Normal,185.5,6.5,ftCode 3101 高さは仮定
+Bldg_0028,Building_Normal,181.6,6.5,ftCode 3101 高さは仮定
+Bldg_0029,Building_Normal,174.5,6.5,ftCode 3101 高さは仮定
+Bldg_0030,Building_Normal,172.2,6.5,ftCode 3101 高さは仮定
+Bldg_0031,Building_Normal,171.2,6.5,ftCode 3101 高さは仮定
+Bldg_0032,Building_Normal,170.9,6.5,ftCode 3101 高さは仮定
+Bldg_0033,Building_Normal,170.6,6.5,ftCode 3101 高さは仮定
+Bldg_0034,Building_Normal,169.9,6.5,ftCode 3101 高さは仮定
+Bldg_0035,Building_Normal,167.1,6.5,ftCode 3101 高さは仮定
+Bldg_0036,Building_Normal,165.4,6.5,ftCode 3101 高さは仮定
+Bldg_0037,Building_Normal,164.5,6.5,ftCode 3101 高さは仮定
+Bldg_0038,Building_Normal,161.7,6.5,ftCode 3101 高さは仮定
+Bldg_0039,Building_Normal,161.6,6.5,ftCode 3101 高さは仮定
+Bldg_0040,Building_Normal,161.2,6.5,ftCode 3101 高さは仮定
+Bldg_0041,Building_Normal,160.6,6.5,ftCode 3101 高さは仮定
+Bldg_0042,Building_Normal,157.5,6.5,ftCode 3101 高さは仮定
+Bldg_0043,Building_Normal,156.9,6.5,ftCode 3101 高さは仮定
+Bldg_0044,Building_Normal,150.7,6.5,ftCode 3101 高さは仮定
+Bldg_0045,Building_Normal,150.3,6.5,ftCode 3101 高さは仮定
+Bldg_0046,Building_Normal,149.5,6.5,ftCode 3101 高さは仮定
+Bldg_0047,Building_Normal,149.2,6.5,ftCode 3101 高さは仮定
+Bldg_0048,Building_Normal,143.2,6.5,ftCode 3101 高さは仮定
+Bldg_0049,Building_Normal,142.4,6.5,ftCode 3101 高さは仮定
+Bldg_0050,Building_Normal,140.2,6.5,ftCode 3101 高さは仮定
+Bldg_0051,Building_Normal,137.6,6.5,ftCode 3101 高さは仮定
+Bldg_0052,Building_Normal,136.4,6.5,ftCode 3101 高さは仮定
+Bldg_0053,Building_Normal,135.6,6.5,ftCode 3101 高さは仮定
+Bldg_0054,Building_Normal,134.3,6.5,ftCode 3101 高さは仮定
+Bldg_0055,Building_Normal,134.1,6.5,ftCode 3101 高さは仮定
+Bldg_0056,Building_Normal,132.9,6.5,ftCode 3101 高さは仮定
+Bldg_0057,Building_Normal,132.6,6.5,ftCode 3101 高さは仮定
+Bldg_0058,Building_Normal,130.3,6.5,ftCode 3101 高さは仮定
+Bldg_0059,Building_Normal,125.4,6.5,ftCode 3101 高さは仮定
+Bldg_0060,Building_Normal,125.1,6.5,ftCode 3101 高さは仮定
+Bldg_0061,Building_Normal,123.5,6.5,ftCode 3101 高さは仮定
+Bldg_0062,Building_Normal,123.2,6.5,ftCode 3101 高さは仮定
+Bldg_0063,Building_Normal,123.1,6.5,ftCode 3101 高さは仮定
+Bldg_0064,Building_Normal,122.3,6.5,ftCode 3101 高さは仮定
+Bldg_0065,Building_Normal,122.2,6.5,ftCode 3101 高さは仮定
+Bldg_0066,Building_Normal,120.0,6.5,ftCode 3101 高さは仮定
+Bldg_0067,Building_Normal,119.5,6.5,ftCode 3101 高さは仮定
+Bldg_0068,Building_Normal,119.1,6.5,ftCode 3101 高さは仮定
+Bldg_0069,Building_Normal,117.9,6.5,ftCode 3101 高さは仮定
+Bldg_0070,Building_Normal,117.6,6.5,ftCode 3101 高さは仮定
+Bldg_0071,Building_Normal,117.3,6.5,ftCode 3101 高さは仮定
+Bldg_0072,Building_Normal,117.2,6.5,ftCode 3101 高さは仮定
+Bldg_0073,Building_Normal,116.5,6.5,ftCode 3101 高さは仮定
+Bldg_0074,Building_Normal,116.4,6.5,ftCode 3101 高さは仮定
+Bldg_0075,Building_Normal,116.0,6.5,ftCode 3101 高さは仮定
+Bldg_0076,Building_Normal,114.5,6.5,ftCode 3101 高さは仮定
+Bldg_0077,Building_Normal,114.5,6.5,ftCode 3101 高さは仮定
+Bldg_0078,Building_Normal,113.0,6.5,ftCode 3101 高さは仮定
+Bldg_0079,Building_Normal,112.9,6.5,ftCode 3101 高さは仮定
+Bldg_0080,Building_Normal,112.4,6.5,ftCode 3101 高さは仮定
+Bldg_0081,Building_Normal,111.9,6.5,ftCode 3101 高さは仮定
+Bldg_0082,Building_Normal,111.8,6.5,ftCode 3101 高さは仮定
+Bldg_0083,Building_Normal,111.7,6.5,ftCode 3101 高さは仮定
+Bldg_0084,Building_Normal,111.3,6.5,ftCode 3101 高さは仮定
+Bldg_0085,Building_Normal,111.0,6.5,ftCode 3101 高さは仮定
+Bldg_0086,Building_Normal,110.2,6.5,ftCode 3101 高さは仮定
+Bldg_0087,Building_Normal,109.2,6.5,ftCode 3101 高さは仮定
+Bldg_0088,Building_Normal,108.2,6.5,ftCode 3101 高さは仮定
+Bldg_0089,Building_Normal,107.5,6.5,ftCode 3101 高さは仮定
+Bldg_0090,Building_Normal,107.1,6.5,ftCode 3101 高さは仮定
+Bldg_0091,Building_Normal,106.1,6.5,ftCode 3101 高さは仮定
+Bldg_0092,Building_Normal,106.1,6.5,ftCode 3101 高さは仮定
+Bldg_0093,Building_Normal,104.1,6.5,ftCode 3101 高さは仮定
+Bldg_0094,Building_Normal,103.6,6.5,ftCode 3101 高さは仮定
+Bldg_0095,Building_Normal,103.6,6.5,ftCode 3101 高さは仮定
+Bldg_0096,Building_Normal,101.5,6.5,ftCode 3101 高さは仮定
+Bldg_0097,Building_Normal,101.5,6.5,ftCode 3101 高さは仮定
+Bldg_0098,Building_Normal,101.3,6.5,ftCode 3101 高さは仮定
+Bldg_0099,Building_Normal,101.1,6.5,ftCode 3101 高さは仮定
+Bldg_0100,Building_Normal,100.4,6.5,ftCode 3101 高さは仮定
+Bldg_0101,Building_Normal,100.3,6.5,ftCode 3101 高さは仮定
+Bldg_0102,Building_Normal,100.3,6.5,ftCode 3101 高さは仮定
+Bldg_0103,Building_Normal,99.3,6.5,ftCode 3101 高さは仮定
+Bldg_0104,Building_Normal,99.2,6.5,ftCode 3101 高さは仮定
+Bldg_0105,Building_Normal,99.1,6.5,ftCode 3101 高さは仮定
+Bldg_0106,Building_Normal,98.9,6.5,ftCode 3101 高さは仮定
+Bldg_0107,Building_Normal,97.9,6.5,ftCode 3101 高さは仮定
+Bldg_0108,Building_Normal,97.3,6.5,ftCode 3101 高さは仮定
+Bldg_0109,Building_Normal,97.3,6.5,ftCode 3101 高さは仮定
+Bldg_0110,Building_Normal,96.5,6.5,ftCode 3101 高さは仮定
+Bldg_0111,Building_Normal,96.3,6.5,ftCode 3101 高さは仮定
+Bldg_0112,Building_Normal,95.2,6.5,ftCode 3101 高さは仮定
+Bldg_0113,Building_Normal,94.5,6.5,ftCode 3101 高さは仮定
+Bldg_0114,Building_Normal,94.0,6.5,ftCode 3101 高さは仮定
+Bldg_0115,Building_Normal,93.8,6.5,ftCode 3101 高さは仮定
+Bldg_0116,Building_Normal,93.4,6.5,ftCode 3101 高さは仮定
+Bldg_0117,Building_Normal,93.1,6.5,ftCode 3101 高さは仮定
+Bldg_0118,Building_Normal,93.0,6.5,ftCode 3101 高さは仮定
+Bldg_0119,Building_Normal,92.9,6.5,ftCode 3101 高さは仮定
+Bldg_0120,Building_Normal,92.8,6.5,ftCode 3101 高さは仮定
+Bldg_0121,Building_Normal,90.7,6.5,ftCode 3101 高さは仮定
+Bldg_0122,Building_Normal,90.5,6.5,ftCode 3101 高さは仮定
+Bldg_0123,Building_Normal,90.4,6.5,ftCode 3101 高さは仮定
+Bldg_0124,Building_Normal,89.9,6.5,ftCode 3101 高さは仮定
+Bldg_0125,Building_Normal,89.8,6.5,ftCode 3101 高さは仮定
+Bldg_0126,Building_Normal,88.6,6.5,ftCode 3101 高さは仮定
+Bldg_0127,Building_Normal,88.4,6.5,ftCode 3101 高さは仮定
+Bldg_0128,Building_Normal,88.2,6.5,ftCode 3101 高さは仮定
+Bldg_0129,Building_Normal,87.8,6.5,ftCode 3101 高さは仮定
+Bldg_0130,Building_Normal,87.2,6.5,ftCode 3101 高さは仮定
+Bldg_0131,Building_Normal,86.9,6.5,ftCode 3101 高さは仮定
+Bldg_0132,Building_Normal,86.7,6.5,ftCode 3101 高さは仮定
+Bldg_0133,Building_Normal,86.5,6.5,ftCode 3101 高さは仮定
+Bldg_0134,Building_Normal,86.2,6.5,ftCode 3101 高さは仮定
+Bldg_0135,Building_Normal,86.1,6.5,ftCode 3101 高さは仮定
+Bldg_0136,Building_Normal,85.9,6.5,ftCode 3101 高さは仮定
+Bldg_0137,Building_Normal,85.2,6.5,ftCode 3101 高さは仮定
+Bldg_0138,Building_Normal,84.7,6.5,ftCode 3101 高さは仮定
+Bldg_0139,Building_Normal,84.3,6.5,ftCode 3101 高さは仮定
+Bldg_0140,Building_Normal,83.9,6.5,ftCode 3101 高さは仮定
+Bldg_0141,Building_Normal,83.2,6.5,ftCode 3101 高さは仮定
+Bldg_0142,Building_Normal,82.7,6.5,ftCode 3101 高さは仮定
+Bldg_0143,Building_Normal,82.7,6.5,ftCode 3101 高さは仮定
+Bldg_0144,Building_Normal,82.5,6.5,ftCode 3101 高さは仮定
+Bldg_0145,Building_Normal,82.5,6.5,ftCode 3101 高さは仮定
+Bldg_0146,Building_Normal,82.4,6.5,ftCode 3101 高さは仮定
+Bldg_0147,Building_Normal,82.0,6.5,ftCode 3101 高さは仮定
+Bldg_0148,Building_Normal,81.9,6.5,ftCode 3101 高さは仮定
+Bldg_0149,Building_Normal,81.6,6.5,ftCode 3101 高さは仮定
+Bldg_0150,Building_Normal,81.5,6.5,ftCode 3101 高さは仮定
+Bldg_0151,Building_Normal,80.9,6.5,ftCode 3101 高さは仮定
+Bldg_0152,Building_Normal,80.7,6.5,ftCode 3101 高さは仮定
+Bldg_0153,Building_Normal,80.2,6.5,ftCode 3101 高さは仮定
+Bldg_0154,Building_Normal,79.5,6.5,ftCode 3101 高さは仮定
+Bldg_0155,Building_Normal,78.8,6.5,ftCode 3101 高さは仮定
+Bldg_0156,Building_Normal,78.5,6.5,ftCode 3101 高さは仮定
+Bldg_0157,Building_Normal,78.2,6.5,ftCode 3101 高さは仮定
+Bldg_0158,Building_Normal,78.0,6.5,ftCode 3101 高さは仮定
+Bldg_0159,Building_Normal,77.9,6.5,ftCode 3101 高さは仮定
+Bldg_0160,Building_Normal,77.8,6.5,ftCode 3101 高さは仮定
+Bldg_0161,Building_Normal,77.1,6.5,ftCode 3101 高さは仮定
+Bldg_0162,Building_Normal,76.4,6.5,ftCode 3101 高さは仮定
+Bldg_0163,Building_Normal,75.6,6.5,ftCode 3101 高さは仮定
+Bldg_0164,Building_Normal,75.3,6.5,ftCode 3101 高さは仮定
+Bldg_0165,Building_Normal,74.9,6.5,ftCode 3101 高さは仮定
+Bldg_0166,Building_Normal,74.7,6.5,ftCode 3101 高さは仮定
+Bldg_0167,Building_Normal,74.5,6.5,ftCode 3101 高さは仮定
+Bldg_0168,Building_Normal,74.4,6.5,ftCode 3101 高さは仮定
+Bldg_0169,Building_Normal,73.6,6.5,ftCode 3101 高さは仮定
+Bldg_0170,Building_Normal,73.2,6.5,ftCode 3101 高さは仮定
+Bldg_0171,Building_Normal,73.1,6.5,ftCode 3101 高さは仮定
+Bldg_0172,Building_Normal,72.7,6.5,ftCode 3101 高さは仮定
+Bldg_0173,Building_Normal,72.6,6.5,ftCode 3101 高さは仮定
+Bldg_0174,Building_Normal,72.3,6.5,ftCode 3101 高さは仮定
+Bldg_0175,Building_Normal,72.2,6.5,ftCode 3101 高さは仮定
+Bldg_0176,Building_Normal,70.9,6.5,ftCode 3101 高さは仮定
+Bldg_0177,Building_Normal,70.8,6.5,ftCode 3101 高さは仮定
+Bldg_0178,Building_Normal,70.6,6.5,ftCode 3101 高さは仮定
+Bldg_0179,Building_Normal,69.9,6.5,ftCode 3101 高さは仮定
+Bldg_0180,Building_Normal,69.9,6.5,ftCode 3101 高さは仮定
+Bldg_0181,Building_Normal,69.8,6.5,ftCode 3101 高さは仮定
+Bldg_0182,Building_Normal,69.6,6.5,ftCode 3101 高さは仮定
+Bldg_0183,Building_Normal,69.5,6.5,ftCode 3101 高さは仮定
+Bldg_0184,Building_Normal,69.3,6.5,ftCode 3101 高さは仮定
+Bldg_0185,Building_Normal,69.1,6.5,ftCode 3101 高さは仮定
+Bldg_0186,Building_Normal,68.4,6.5,ftCode 3101 高さは仮定
+Bldg_0187,Building_Normal,68.2,6.5,ftCode 3101 高さは仮定
+Bldg_0188,Building_Normal,68.1,6.5,ftCode 3101 高さは仮定
+Bldg_0189,Building_Normal,67.8,6.5,ftCode 3101 高さは仮定
+Bldg_0190,Building_Normal,67.8,6.5,ftCode 3101 高さは仮定
+Bldg_0191,Building_Normal,67.1,6.5,ftCode 3101 高さは仮定
+Bldg_0192,Building_Normal,66.8,6.5,ftCode 3101 高さは仮定
+Bldg_0193,Building_Normal,66.7,6.5,ftCode 3101 高さは仮定
+Bldg_0194,Building_Normal,66.6,6.5,ftCode 3101 高さは仮定
+Bldg_0195,Building_Normal,66.5,6.5,ftCode 3101 高さは仮定
+Bldg_0196,Building_Normal,66.4,6.5,ftCode 3101 高さは仮定
+Bldg_0197,Building_Normal,66.3,6.5,ftCode 3101 高さは仮定
+Bldg_0198,Building_Normal,65.7,6.5,ftCode 3101 高さは仮定
+Bldg_0199,Building_Normal,65.6,6.5,ftCode 3101 高さは仮定
+Bldg_0200,Building_Normal,65.4,6.5,ftCode 3101 高さは仮定
+Bldg_0201,Building_Normal,65.2,6.5,ftCode 3101 高さは仮定
+Bldg_0202,Building_Normal,65.1,6.5,ftCode 3101 高さは仮定
+Bldg_0203,Building_Normal,64.9,6.5,ftCode 3101 高さは仮定
+Bldg_0204,Building_Normal,64.8,6.5,ftCode 3101 高さは仮定
+Bldg_0205,Building_Normal,64.7,6.5,ftCode 3101 高さは仮定
+Bldg_0206,Building_Normal,63.7,6.5,ftCode 3101 高さは仮定
+Bldg_0207,Building_Normal,63.6,6.5,ftCode 3101 高さは仮定
+Bldg_0208,Building_Normal,63.5,6.5,ftCode 3101 高さは仮定
+Bldg_0209,Building_Normal,63.2,6.5,ftCode 3101 高さは仮定
+Bldg_0210,Building_Normal,63.2,6.5,ftCode 3101 高さは仮定
+Bldg_0211,Building_Normal,62.9,6.5,ftCode 3101 高さは仮定
+Bldg_0212,Building_Normal,62.8,6.5,ftCode 3101 高さは仮定
+Bldg_0213,Building_Normal,62.8,6.5,ftCode 3101 高さは仮定
+Bldg_0214,Building_Normal,62.7,6.5,ftCode 3101 高さは仮定
+Bldg_0215,Building_Normal,62.5,6.5,ftCode 3101 高さは仮定
+Bldg_0216,Building_Normal,62.2,6.5,ftCode 3101 高さは仮定
+Bldg_0217,Building_Normal,62.1,6.5,ftCode 3101 高さは仮定
+Bldg_0218,Building_Normal,62.0,6.5,ftCode 3101 高さは仮定
+Bldg_0219,Building_Normal,61.2,6.5,ftCode 3101 高さは仮定
+Bldg_0220,Building_Normal,61.0,6.5,ftCode 3101 高さは仮定
+Bldg_0221,Building_Normal,60.8,6.5,ftCode 3101 高さは仮定
+Bldg_0222,Building_Normal,60.7,6.5,ftCode 3101 高さは仮定
+Bldg_0223,Building_Normal,60.6,6.5,ftCode 3101 高さは仮定
+Bldg_0224,Building_Normal,60.4,6.5,ftCode 3101 高さは仮定
+Bldg_0225,Building_Normal,60.0,6.5,ftCode 3101 高さは仮定
+Bldg_0226,Building_Normal,59.7,6.5,ftCode 3101 高さは仮定
+Bldg_0227,Building_Normal,59.3,6.5,ftCode 3101 高さは仮定
+Bldg_0228,Building_Normal,59.0,6.5,ftCode 3101 高さは仮定
+Bldg_0229,Building_Normal,58.8,6.5,ftCode 3101 高さは仮定
+Bldg_0230,Building_Normal,58.5,6.5,ftCode 3101 高さは仮定
+Bldg_0231,Building_Normal,58.5,6.5,ftCode 3101 高さは仮定
+Bldg_0232,Building_Normal,57.6,6.5,ftCode 3101 高さは仮定
+Bldg_0233,Building_Normal,57.1,6.5,ftCode 3101 高さは仮定
+Bldg_0234,Building_Normal,56.9,6.5,ftCode 3101 高さは仮定
+Bldg_0235,Building_Normal,56.2,6.5,ftCode 3101 高さは仮定
+Bldg_0236,Building_Normal,56.0,6.5,ftCode 3101 高さは仮定
+Bldg_0237,Building_Normal,56.0,6.5,ftCode 3101 高さは仮定
+Bldg_0238,Building_Normal,55.7,6.5,ftCode 3101 高さは仮定
+Bldg_0239,Building_Normal,55.7,6.5,ftCode 3101 高さは仮定
+Bldg_0240,Building_Normal,55.4,6.5,ftCode 3101 高さは仮定
+Bldg_0241,Building_Normal,55.2,6.5,ftCode 3101 高さは仮定
+Bldg_0242,Building_Normal,55.0,6.5,ftCode 3101 高さは仮定
+Bldg_0243,Building_Normal,55.0,6.5,ftCode 3101 高さは仮定
+Bldg_0244,Building_Normal,54.8,6.5,ftCode 3101 高さは仮定
+Bldg_0245,Building_Normal,54.7,6.5,ftCode 3101 高さは仮定
+Bldg_0246,Building_Normal,54.6,6.5,ftCode 3101 高さは仮定
+Bldg_0247,Building_Normal,53.4,6.5,ftCode 3101 高さは仮定
+Bldg_0248,Building_Normal,53.0,6.5,ftCode 3101 高さは仮定
+Bldg_0249,Building_Normal,52.7,6.5,ftCode 3101 高さは仮定
+Bldg_0250,Building_Normal,52.6,6.5,ftCode 3101 高さは仮定
+Bldg_0251,Building_Normal,52.4,6.5,ftCode 3101 高さは仮定
+Bldg_0252,Building_Normal,52.4,6.5,ftCode 3101 高さは仮定
+Bldg_0253,Building_Normal,52.3,6.5,ftCode 3101 高さは仮定
+Bldg_0254,Building_Normal,51.6,6.5,ftCode 3101 高さは仮定
+Bldg_0255,Building_Normal,51.4,6.5,ftCode 3101 高さは仮定
+Bldg_0256,Building_Normal,51.2,6.5,ftCode 3101 高さは仮定
+Bldg_0257,Building_Normal,51.0,6.5,ftCode 3101 高さは仮定
+Bldg_0258,Building_Normal,51.0,6.5,ftCode 3101 高さは仮定
+Bldg_0259,Building_Normal,49.7,3.5,ftCode 3101 高さは仮定
+Bldg_0260,Building_Normal,49.7,3.5,ftCode 3101 高さは仮定
+Bldg_0261,Building_Normal,49.4,3.5,ftCode 3101 高さは仮定
+Bldg_0262,Building_Normal,49.1,3.5,ftCode 3101 高さは仮定
+Bldg_0263,Building_Normal,49.1,3.5,ftCode 3101 高さは仮定
+Bldg_0264,Building_Normal,48.9,3.5,ftCode 3101 高さは仮定
+Bldg_0265,Building_Normal,48.7,3.5,ftCode 3101 高さは仮定
+Bldg_0266,Building_Normal,48.6,3.5,ftCode 3101 高さは仮定
+Bldg_0267,Building_Normal,48.6,3.5,ftCode 3101 高さは仮定
+Bldg_0268,Building_Normal,48.4,3.5,ftCode 3101 高さは仮定
+Bldg_0269,Building_Normal,48.4,3.5,ftCode 3101 高さは仮定
+Bldg_0270,Building_Normal,48.1,3.5,ftCode 3101 高さは仮定
+Bldg_0271,Building_Normal,47.8,3.5,ftCode 3101 高さは仮定
+Bldg_0272,Building_Normal,47.7,3.5,ftCode 3101 高さは仮定
+Bldg_0273,Building_Normal,47.6,3.5,ftCode 3101 高さは仮定
+Bldg_0274,Building_Normal,47.5,3.5,ftCode 3101 高さは仮定
+Bldg_0275,Building_Normal,47.2,3.5,ftCode 3101 高さは仮定
+Bldg_0276,Building_Normal,46.8,3.5,ftCode 3101 高さは仮定
+Bldg_0277,Building_Normal,46.6,3.5,ftCode 3101 高さは仮定
+Bldg_0278,Building_Normal,46.6,3.5,ftCode 3101 高さは仮定
+Bldg_0279,Building_Normal,46.5,3.5,ftCode 3101 高さは仮定
+Bldg_0280,Building_Normal,46.4,3.5,ftCode 3101 高さは仮定
+Bldg_0281,Building_Normal,45.8,3.5,ftCode 3101 高さは仮定
+Bldg_0282,Building_Normal,45.6,3.5,ftCode 3101 高さは仮定
+Bldg_0283,Building_Normal,44.9,3.5,ftCode 3101 高さは仮定
+Bldg_0284,Building_Normal,44.4,3.5,ftCode 3101 高さは仮定
+Bldg_0285,Building_Normal,44.4,3.5,ftCode 3101 高さは仮定
+Bldg_0286,Building_Normal,44.1,3.5,ftCode 3101 高さは仮定
+Bldg_0287,Building_Normal,43.7,3.5,ftCode 3101 高さは仮定
+Bldg_0288,Building_Normal,43.2,3.5,ftCode 3101 高さは仮定
+Bldg_0289,Building_Normal,42.5,3.5,ftCode 3101 高さは仮定
+Bldg_0290,Building_Normal,42.4,3.5,ftCode 3101 高さは仮定
+Bldg_0291,Building_Normal,42.1,3.5,ftCode 3101 高さは仮定
+Bldg_0292,Building_Normal,42.1,3.5,ftCode 3101 高さは仮定
+Bldg_0293,Building_Normal,41.6,3.5,ftCode 3101 高さは仮定
+Bldg_0294,Building_Normal,41.4,3.5,ftCode 3101 高さは仮定
+Bldg_0295,Building_Normal,39.9,3.5,ftCode 3101 高さは仮定
+Bldg_0296,Building_Normal,39.8,3.5,ftCode 3101 高さは仮定
+Bldg_0297,Building_Normal,39.6,3.5,ftCode 3101 高さは仮定
+Bldg_0298,Building_Normal,39.2,3.5,ftCode 3101 高さは仮定
+Bldg_0299,Building_Normal,38.7,3.5,ftCode 3101 高さは仮定
+Bldg_0300,Building_Normal,38.6,3.5,ftCode 3101 高さは仮定
+Bldg_0301,Building_Normal,38.3,3.5,ftCode 3101 高さは仮定
+Bldg_0302,Building_Normal,38.3,3.5,ftCode 3101 高さは仮定
+Bldg_0303,Building_Normal,38.2,3.5,ftCode 3101 高さは仮定
+Bldg_0304,Building_Normal,38.2,3.5,ftCode 3101 高さは仮定
+Bldg_0305,Building_Normal,38.0,3.5,ftCode 3101 高さは仮定
+Bldg_0306,Building_Normal,38.0,3.5,ftCode 3101 高さは仮定
+Bldg_0307,Building_Normal,37.9,3.5,ftCode 3101 高さは仮定
+Bldg_0308,Building_Normal,37.9,3.5,ftCode 3101 高さは仮定
+Bldg_0309,Building_Normal,37.8,3.5,ftCode 3101 高さは仮定
+Bldg_0310,Building_Normal,37.8,3.5,ftCode 3101 高さは仮定
+Bldg_0311,Building_Normal,37.3,3.5,ftCode 3101 高さは仮定
+Bldg_0312,Building_Normal,37.2,3.5,ftCode 3101 高さは仮定
+Bldg_0313,Building_Normal,36.4,3.5,ftCode 3101 高さは仮定
+Bldg_0314,Building_Normal,36.3,3.5,ftCode 3101 高さは仮定
+Bldg_0315,Building_Normal,36.0,3.5,ftCode 3101 高さは仮定
+Bldg_0316,Building_Normal,35.8,3.5,ftCode 3101 高さは仮定
+Bldg_0317,Building_Normal,35.5,3.5,ftCode 3101 高さは仮定
+Bldg_0318,Building_Normal,35.4,3.5,ftCode 3101 高さは仮定
+Bldg_0319,Building_Normal,34.5,3.5,ftCode 3101 高さは仮定
+Bldg_0320,Building_Normal,34.1,3.5,ftCode 3101 高さは仮定
+Bldg_0321,Building_Normal,34.0,3.5,ftCode 3101 高さは仮定
+Bldg_0322,Building_Normal,34.0,3.5,ftCode 3101 高さは仮定
+Bldg_0323,Building_Normal,33.9,3.5,ftCode 3101 高さは仮定
+Bldg_0324,Building_Normal,33.1,3.5,ftCode 3101 高さは仮定
+Bldg_0325,Building_Normal,32.8,3.5,ftCode 3101 高さは仮定
+Bldg_0326,Building_Normal,32.3,3.5,ftCode 3101 高さは仮定
+Bldg_0327,Building_Normal,32.2,3.5,ftCode 3101 高さは仮定
+Bldg_0328,Building_Normal,31.8,3.5,ftCode 3101 高さは仮定
+Bldg_0329,Building_Normal,30.9,3.5,ftCode 3101 高さは仮定
+Bldg_0330,Building_Normal,30.2,3.5,ftCode 3101 高さは仮定
+Bldg_0331,Building_Normal,29.4,3.5,ftCode 3101 高さは仮定
+Bldg_0332,Building_Normal,29.3,3.5,ftCode 3101 高さは仮定
+Bldg_0333,Building_Normal,29.2,3.5,ftCode 3101 高さは仮定
+Bldg_0334,Building_Normal,29.2,3.5,ftCode 3101 高さは仮定
+Bldg_0335,Building_Normal,28.6,3.5,ftCode 3101 高さは仮定
+Bldg_0336,Building_Normal,28.3,3.5,ftCode 3101 高さは仮定
+Bldg_0337,Building_Normal,28.3,3.5,ftCode 3101 高さは仮定
+Bldg_0338,Building_Normal,27.7,3.5,ftCode 3101 高さは仮定
+Bldg_0339,Building_Normal,27.6,3.5,ftCode 3101 高さは仮定
+Bldg_0340,Building_Normal,27.0,3.5,ftCode 3101 高さは仮定
+Bldg_0341,Building_Normal,26.9,3.5,ftCode 3101 高さは仮定
+Bldg_0342,Building_Normal,26.9,3.5,ftCode 3101 高さは仮定
+Bldg_0343,Building_Normal,26.8,3.5,ftCode 3101 高さは仮定
+Bldg_0344,Building_Normal,26.4,3.5,ftCode 3101 高さは仮定
+Bldg_0345,Building_Normal,26.4,3.5,ftCode 3101 高さは仮定
+Bldg_0346,Building_Normal,26.2,3.5,ftCode 3101 高さは仮定
+Bldg_0347,Building_Normal,26.1,3.5,ftCode 3101 高さは仮定
+Bldg_0348,Building_Normal,25.5,3.5,ftCode 3101 高さは仮定
+Bldg_0349,Building_Normal,25.5,3.5,ftCode 3101 高さは仮定
+Bldg_0350,Building_Normal,25.2,3.5,ftCode 3101 高さは仮定
+Bldg_0351,Building_Normal,24.5,3.5,ftCode 3101 高さは仮定
+Bldg_0352,Building_Normal,24.4,3.5,ftCode 3101 高さは仮定
+Bldg_0353,Building_Normal,24.4,3.5,ftCode 3101 高さは仮定
+Bldg_0354,Building_Normal,24.4,3.5,ftCode 3101 高さは仮定
+Bldg_0355,Building_Normal,24.3,3.5,ftCode 3101 高さは仮定
+Bldg_0356,Building_Normal,23.9,3.5,ftCode 3101 高さは仮定
+Bldg_0357,Building_Normal,23.5,3.5,ftCode 3101 高さは仮定
+Bldg_0358,Building_Normal,23.4,3.5,ftCode 3101 高さは仮定
+Bldg_0359,Building_Normal,23.3,3.5,ftCode 3101 高さは仮定
+Bldg_0360,Building_Normal,22.8,3.5,ftCode 3101 高さは仮定
+Bldg_0361,Building_Normal,22.3,3.5,ftCode 3101 高さは仮定
+Bldg_0362,Building_Normal,22.2,3.5,ftCode 3101 高さは仮定
+Bldg_0363,Building_Normal,21.8,3.5,ftCode 3101 高さは仮定
+Bldg_0364,Building_Normal,21.5,3.5,ftCode 3101 高さは仮定
+Bldg_0365,Building_Normal,21.4,3.5,ftCode 3101 高さは仮定
+Bldg_0366,Building_Normal,21.4,3.5,ftCode 3101 高さは仮定
+Bldg_0367,Building_Normal,20.7,3.5,ftCode 3101 高さは仮定
+Bldg_0368,Building_Normal,20.3,3.5,ftCode 3101 高さは仮定
+Bldg_0369,Building_Normal,19.5,3.5,ftCode 3101 高さは仮定
+Bldg_0370,Building_Normal,19.2,3.5,ftCode 3101 高さは仮定
+Bldg_0371,Building_Normal,19.0,3.5,ftCode 3101 高さは仮定
+Bldg_0372,Building_Normal,18.8,3.5,ftCode 3101 高さは仮定
+Bldg_0373,Building_Normal,18.6,3.5,ftCode 3101 高さは仮定
+Bldg_0374,Building_Normal,18.2,3.5,ftCode 3101 高さは仮定
+Bldg_0375,Building_Normal,18.0,3.5,ftCode 3101 高さは仮定
+Bldg_0376,Building_Normal,17.9,3.5,ftCode 3101 高さは仮定
+Bldg_0377,Building_Normal,17.1,3.5,ftCode 3101 高さは仮定
+Bldg_0378,Building_Normal,17.0,3.5,ftCode 3101 高さは仮定
+Bldg_0379,Building_Normal,17.0,3.5,ftCode 3101 高さは仮定
+Bldg_0380,Building_Normal,16.9,3.5,ftCode 3101 高さは仮定
+Bldg_0381,Building_Normal,16.7,3.5,ftCode 3101 高さは仮定
+Bldg_0382,Building_Normal,16.4,3.5,ftCode 3101 高さは仮定
+Bldg_0383,Building_Normal,16.4,3.5,ftCode 3101 高さは仮定
+Bldg_0384,Building_Normal,16.3,3.5,ftCode 3101 高さは仮定
+Bldg_0385,Building_Normal,16.1,3.5,ftCode 3101 高さは仮定
+Bldg_0386,Building_Normal,16.0,3.5,ftCode 3101 高さは仮定
+Bldg_0387,Building_Normal,15.6,3.5,ftCode 3101 高さは仮定
+Bldg_0388,Building_Normal,15.4,3.5,ftCode 3101 高さは仮定
+Bldg_0389,Building_Normal,15.1,3.5,ftCode 3101 高さは仮定
+Bldg_0390,Building_Normal,14.8,3.5,ftCode 3101 高さは仮定
+Bldg_0391,Building_Normal,14.8,3.5,ftCode 3101 高さは仮定
+Bldg_0392,Building_Normal,14.6,3.5,ftCode 3101 高さは仮定
+Bldg_0393,Building_Normal,14.5,3.5,ftCode 3101 高さは仮定
+Bldg_0394,Building_Normal,14.5,3.5,ftCode 3101 高さは仮定
+Bldg_0395,Building_Normal,14.4,3.5,ftCode 3101 高さは仮定
+Bldg_0396,Building_Normal,13.8,3.5,ftCode 3101 高さは仮定
+Bldg_0397,Building_Normal,13.7,3.5,ftCode 3101 高さは仮定
+Bldg_0398,Building_Normal,13.5,3.5,ftCode 3101 高さは仮定
+Bldg_0399,Building_Normal,12.9,3.5,ftCode 3101 高さは仮定
+Bldg_0400,Building_Normal,12.6,3.5,ftCode 3101 高さは仮定
+Bldg_0401,Building_Normal,12.6,3.5,ftCode 3101 高さは仮定
+Bldg_0402,Building_Normal,11.6,3.5,ftCode 3101 高さは仮定
+Bldg_0403,Building_Normal,11.3,3.5,ftCode 3101 高さは仮定
+Bldg_0404,Building_Normal,11.2,3.5,ftCode 3101 高さは仮定
+Bldg_0405,Building_Normal,11.2,3.5,ftCode 3101 高さは仮定
+Bldg_0406,Building_Normal,11.2,3.5,ftCode 3101 高さは仮定
+Bldg_0407,Building_Normal,11.0,3.5,ftCode 3101 高さは仮定
+Bldg_0408,Building_Normal,11.0,3.5,ftCode 3101 高さは仮定
+Bldg_0409,Building_Normal,10.8,3.5,ftCode 3101 高さは仮定
+Bldg_0410,Building_Normal,10.8,3.5,ftCode 3101 高さは仮定
+Bldg_0411,Building_Normal,10.6,3.5,ftCode 3101 高さは仮定
+Bldg_0412,Building_Normal,9.4,3.5,ftCode 3101 高さは仮定
+Bldg_0413,Building_Normal,9.2,3.5,ftCode 3101 高さは仮定
+Bldg_0414,Building_Normal,9.0,3.5,ftCode 3101 高さは仮定
+Bldg_0415,Building_Normal,8.9,3.5,ftCode 3101 高さは仮定
+Bldg_0416,Building_Normal,8.8,3.5,ftCode 3101 高さは仮定
+Bldg_0417,Building_Normal,8.6,3.5,ftCode 3101 高さは仮定
+Bldg_0418,Building_Normal,8.5,3.5,ftCode 3101 高さは仮定
+Bldg_0419,Building_Normal,8.4,3.5,ftCode 3101 高さは仮定
+Bldg_0420,Building_Normal,8.0,3.5,ftCode 3101 高さは仮定
+Bldg_0421,Building_Normal,7.8,3.5,ftCode 3101 高さは仮定
+Bldg_0422,Building_Normal,7.8,3.5,ftCode 3101 高さは仮定
+Bldg_0423,Building_Normal,7.7,3.5,ftCode 3101 高さは仮定
+Bldg_0424,Building_Normal,7.5,3.5,ftCode 3101 高さは仮定
+Bldg_0425,Building_Normal,7.4,3.5,ftCode 3101 高さは仮定
+Bldg_0426,Building_Normal,7.3,3.5,ftCode 3101 高さは仮定
+Bldg_0427,Building_Normal,7.2,3.5,ftCode 3101 高さは仮定
+Bldg_0428,Building_Normal,7.0,3.5,ftCode 3101 高さは仮定
+Bldg_0429,Building_Normal,7.0,3.5,ftCode 3101 高さは仮定
+Bldg_0430,Building_Normal,6.9,3.5,ftCode 3101 高さは仮定
+Bldg_0431,Building_Normal,6.6,3.5,ftCode 3101 高さは仮定
+Bldg_0432,Building_Normal,6.3,3.5,ftCode 3101 高さは仮定
+Bldg_0433,Building_Normal,6.1,3.5,ftCode 3101 高さは仮定
+Bldg_0434,Building_Normal,5.7,3.5,ftCode 3101 高さは仮定
+Bldg_0435,Building_Normal,5.6,3.5,ftCode 3101 高さは仮定
+Bldg_0436,Building_Normal,5.4,3.5,ftCode 3101 高さは仮定
+Bldg_0437,Building_Normal,5.1,3.5,ftCode 3101 高さは仮定
+Bldg_0438,Building_Normal,4.9,3.5,ftCode 3101 高さは仮定
+Bldg_0439,Building_Normal,4.7,3.5,ftCode 3101 高さは仮定
+Bldg_0440,Building_Normal,4.3,3.5,ftCode 3101 高さは仮定
+Bldg_0441,Building_Normal,4.3,3.5,ftCode 3101 高さは仮定
+Bldg_0442,Building_Normal,4.1,3.5,ftCode 3101 高さは仮定
+Bldg_0443,Building_Normal,4.0,3.5,ftCode 3101 高さは仮定
+Bldg_0444,Building_Normal,3.9,3.5,ftCode 3101 高さは仮定
+Bldg_0445,Building_Normal,3.5,3.5,ftCode 3101 高さは仮定
+Bldg_0446,Building_Normal,3.5,3.5,ftCode 3101 高さは仮定
+Bldg_0447,Building_Normal,3.3,3.5,ftCode 3101 高さは仮定
+Bldg_0448,Building_Normal,3.2,3.5,ftCode 3101 高さは仮定
+Bldg_0449,Building_Solid,4280.4,25.0,ftCode 3102 高さは仮定
+Bldg_0450,Building_Solid,3272.2,25.0,ftCode 3102 高さは仮定
+Bldg_0451,Building_Solid,2493.3,25.0,ftCode 3102 高さは仮定
+Bldg_0452,Building_Solid,1894.7,25.0,ftCode 3102 高さは仮定
+Bldg_0453,Building_Solid,1848.8,25.0,ftCode 3102 高さは仮定
+Bldg_0454,Building_Solid,1438.2,18.0,ftCode 3102 高さは仮定
+Bldg_0455,Building_Solid,1170.1,18.0,ftCode 3102 高さは仮定
+Bldg_0456,Building_Solid,1119.0,18.0,ftCode 3102 高さは仮定
+Bldg_0457,Building_Solid,1084.8,18.0,ftCode 3102 高さは仮定
+Bldg_0458,Building_Solid,1032.6,18.0,ftCode 3102 高さは仮定
+Bldg_0459,Building_Solid,949.5,18.0,ftCode 3102 高さは仮定
+Bldg_0460,Building_Solid,926.3,18.0,ftCode 3102 高さは仮定
+Bldg_0461,Building_Solid,887.9,18.0,ftCode 3102 高さは仮定
+Bldg_0462,Building_Solid,797.4,18.0,ftCode 3102 高さは仮定
+Bldg_0463,Building_Solid,685.5,18.0,ftCode 3102 高さは仮定
+Bldg_0464,Building_Solid,649.9,18.0,ftCode 3102 高さは仮定
+Bldg_0465,Building_Solid,618.0,18.0,ftCode 3102 高さは仮定
+Bldg_0466,Building_Solid,591.6,18.0,ftCode 3102 高さは仮定
+Bldg_0467,Building_Solid,581.9,18.0,ftCode 3102 高さは仮定
+Bldg_0468,Building_Solid,571.8,18.0,ftCode 3102 高さは仮定
+Bldg_0469,Building_Solid,571.3,18.0,ftCode 3102 高さは仮定
+Bldg_0470,Building_Solid,568.3,18.0,ftCode 3102 高さは仮定
+Bldg_0471,Building_Solid,566.4,18.0,ftCode 3102 高さは仮定
+Bldg_0472,Building_Solid,546.7,18.0,ftCode 3102 高さは仮定
+Bldg_0473,Building_Solid,489.3,18.0,ftCode 3102 高さは仮定
+Bldg_0474,Building_Solid,483.7,18.0,ftCode 3102 高さは仮定
+Bldg_0475,Building_Solid,478.5,18.0,ftCode 3102 高さは仮定
+Bldg_0476,Building_Solid,409.2,18.0,ftCode 3102 高さは仮定
+Bldg_0477,Building_Solid,405.8,18.0,ftCode 3102 高さは仮定
+Bldg_0478,Building_Solid,364.2,12.0,ftCode 3102 高さは仮定
+Bldg_0479,Building_Solid,363.5,12.0,ftCode 3102 高さは仮定
+Bldg_0480,Building_Solid,342.6,12.0,ftCode 3102 高さは仮定
+Bldg_0481,Building_Solid,342.3,12.0,ftCode 3102 高さは仮定
+Bldg_0482,Building_Solid,335.8,12.0,ftCode 3102 高さは仮定
+Bldg_0483,Building_Solid,295.2,12.0,ftCode 3102 高さは仮定
+Bldg_0484,Building_Solid,294.8,12.0,ftCode 3102 高さは仮定
+Bldg_0485,Building_Solid,280.4,12.0,ftCode 3102 高さは仮定
+Bldg_0486,Building_Solid,278.0,12.0,ftCode 3102 高さは仮定
+Bldg_0487,Building_Solid,255.8,12.0,ftCode 3102 高さは仮定
+Bldg_0488,Building_Solid,244.1,12.0,ftCode 3102 高さは仮定
+Bldg_0489,Building_Solid,237.6,12.0,ftCode 3102 高さは仮定
+Bldg_0490,Building_Solid,234.0,12.0,ftCode 3102 高さは仮定
+Bldg_0491,Building_Solid,219.8,12.0,ftCode 3102 高さは仮定
+Bldg_0492,Building_Solid,219.0,12.0,ftCode 3102 高さは仮定
+Bldg_0493,Building_Solid,218.9,12.0,ftCode 3102 高さは仮定
+Bldg_0494,Building_Solid,218.3,12.0,ftCode 3102 高さは仮定
+Bldg_0495,Building_Solid,217.0,12.0,ftCode 3102 高さは仮定
+Bldg_0496,Building_Solid,215.3,12.0,ftCode 3102 高さは仮定
+Bldg_0497,Building_Solid,211.3,12.0,ftCode 3102 高さは仮定
+Bldg_0498,Building_Solid,207.9,12.0,ftCode 3102 高さは仮定
+Bldg_0499,Building_Solid,199.2,12.0,ftCode 3102 高さは仮定
+Bldg_0500,Building_Solid,194.9,12.0,ftCode 3102 高さは仮定
+Bldg_0501,Building_Solid,190.2,12.0,ftCode 3102 高さは仮定
+Bldg_0502,Building_Solid,183.7,12.0,ftCode 3102 高さは仮定
+Bldg_0503,Building_Solid,178.3,12.0,ftCode 3102 高さは仮定
+Bldg_0504,Building_Solid,170.7,12.0,ftCode 3102 高さは仮定
+Bldg_0505,Building_Solid,170.1,12.0,ftCode 3102 高さは仮定
+Bldg_0506,Building_Solid,169.0,12.0,ftCode 3102 高さは仮定
+Bldg_0507,Building_Solid,168.9,12.0,ftCode 3102 高さは仮定
+Bldg_0508,Building_Solid,168.6,12.0,ftCode 3102 高さは仮定
+Bldg_0509,Building_Solid,166.2,12.0,ftCode 3102 高さは仮定
+Bldg_0510,Building_Solid,165.8,12.0,ftCode 3102 高さは仮定
+Bldg_0511,Building_Solid,163.9,12.0,ftCode 3102 高さは仮定
+Bldg_0512,Building_Solid,162.5,12.0,ftCode 3102 高さは仮定
+Bldg_0513,Building_Solid,160.2,12.0,ftCode 3102 高さは仮定
+Bldg_0514,Building_Solid,160.2,12.0,ftCode 3102 高さは仮定
+Bldg_0515,Building_Solid,156.6,12.0,ftCode 3102 高さは仮定
+Bldg_0516,Building_Solid,153.2,12.0,ftCode 3102 高さは仮定
+Bldg_0517,Building_Solid,153.2,12.0,ftCode 3102 高さは仮定
+Bldg_0518,Building_Solid,150.0,12.0,ftCode 3102 高さは仮定
+Bldg_0519,Building_Solid,148.5,12.0,ftCode 3102 高さは仮定
+Bldg_0520,Building_Solid,146.7,12.0,ftCode 3102 高さは仮定
+Bldg_0521,Building_Solid,145.3,12.0,ftCode 3102 高さは仮定
+Bldg_0522,Building_Solid,144.0,12.0,ftCode 3102 高さは仮定
+Bldg_0523,Building_Solid,135.9,12.0,ftCode 3102 高さは仮定
+Bldg_0524,Building_Solid,131.8,12.0,ftCode 3102 高さは仮定
+Bldg_0525,Building_Solid,130.7,12.0,ftCode 3102 高さは仮定
+Bldg_0526,Building_Solid,130.1,12.0,ftCode 3102 高さは仮定
+Bldg_0527,Building_Solid,128.1,12.0,ftCode 3102 高さは仮定
+Bldg_0528,Building_Solid,127.4,12.0,ftCode 3102 高さは仮定
+Bldg_0529,Building_Solid,125.3,12.0,ftCode 3102 高さは仮定
+Bldg_0530,Building_Solid,124.1,12.0,ftCode 3102 高さは仮定
+Bldg_0531,Building_Solid,124.0,12.0,ftCode 3102 高さは仮定
+Bldg_0532,Building_Solid,121.3,12.0,ftCode 3102 高さは仮定
+Bldg_0533,Building_Solid,119.7,12.0,ftCode 3102 高さは仮定
+Bldg_0534,Building_Solid,118.9,12.0,ftCode 3102 高さは仮定
+Bldg_0535,Building_Solid,118.2,12.0,ftCode 3102 高さは仮定
+Bldg_0536,Building_Solid,116.4,12.0,ftCode 3102 高さは仮定
+Bldg_0537,Building_Solid,115.5,12.0,ftCode 3102 高さは仮定
+Bldg_0538,Building_Solid,113.9,12.0,ftCode 3102 高さは仮定
+Bldg_0539,Building_Solid,111.4,12.0,ftCode 3102 高さは仮定
+Bldg_0540,Building_Solid,111.2,12.0,ftCode 3102 高さは仮定
+Bldg_0541,Building_Solid,108.6,12.0,ftCode 3102 高さは仮定
+Bldg_0542,Building_Solid,107.7,12.0,ftCode 3102 高さは仮定
+Bldg_0543,Building_Solid,106.1,12.0,ftCode 3102 高さは仮定
+Bldg_0544,Building_Solid,105.3,12.0,ftCode 3102 高さは仮定
+Bldg_0545,Building_Solid,105.0,12.0,ftCode 3102 高さは仮定
+Bldg_0546,Building_Solid,104.2,12.0,ftCode 3102 高さは仮定
+Bldg_0547,Building_Solid,104.0,12.0,ftCode 3102 高さは仮定
+Bldg_0548,Building_Solid,103.5,12.0,ftCode 3102 高さは仮定
+Bldg_0549,Building_Solid,103.5,12.0,ftCode 3102 高さは仮定
+Bldg_0550,Building_Solid,101.6,12.0,ftCode 3102 高さは仮定
+Bldg_0551,Building_Solid,99.1,9.0,ftCode 3102 高さは仮定
+Bldg_0552,Building_Solid,96.1,9.0,ftCode 3102 高さは仮定
+Bldg_0553,Building_Solid,96.0,9.0,ftCode 3102 高さは仮定
+Bldg_0554,Building_Solid,95.3,9.0,ftCode 3102 高さは仮定
+Bldg_0555,Building_Solid,94.9,9.0,ftCode 3102 高さは仮定
+Bldg_0556,Building_Solid,93.8,9.0,ftCode 3102 高さは仮定
+Bldg_0557,Building_Solid,93.6,9.0,ftCode 3102 高さは仮定
+Bldg_0558,Building_Solid,92.9,9.0,ftCode 3102 高さは仮定
+Bldg_0559,Building_Solid,92.9,9.0,ftCode 3102 高さは仮定
+Bldg_0560,Building_Solid,92.7,9.0,ftCode 3102 高さは仮定
+Bldg_0561,Building_Solid,92.0,9.0,ftCode 3102 高さは仮定
+Bldg_0562,Building_Solid,90.5,9.0,ftCode 3102 高さは仮定
+Bldg_0563,Building_Solid,89.8,9.0,ftCode 3102 高さは仮定
+Bldg_0564,Building_Solid,88.3,9.0,ftCode 3102 高さは仮定
+Bldg_0565,Building_Solid,87.9,9.0,ftCode 3102 高さは仮定
+Bldg_0566,Building_Solid,87.2,9.0,ftCode 3102 高さは仮定
+Bldg_0567,Building_Solid,85.4,9.0,ftCode 3102 高さは仮定
+Bldg_0568,Building_Solid,84.8,9.0,ftCode 3102 高さは仮定
+Bldg_0569,Building_Solid,83.8,9.0,ftCode 3102 高さは仮定
+Bldg_0570,Building_Solid,83.3,9.0,ftCode 3102 高さは仮定
+Bldg_0571,Building_Solid,83.0,9.0,ftCode 3102 高さは仮定
+Bldg_0572,Building_Solid,82.9,9.0,ftCode 3102 高さは仮定
+Bldg_0573,Building_Solid,82.6,9.0,ftCode 3102 高さは仮定
+Bldg_0574,Building_Solid,81.7,9.0,ftCode 3102 高さは仮定
+Bldg_0575,Building_Solid,81.2,9.0,ftCode 3102 高さは仮定
+Bldg_0576,Building_Solid,80.4,9.0,ftCode 3102 高さは仮定
+Bldg_0577,Building_Solid,80.4,9.0,ftCode 3102 高さは仮定
+Bldg_0578,Building_Solid,79.5,9.0,ftCode 3102 高さは仮定
+Bldg_0579,Building_Solid,78.0,9.0,ftCode 3102 高さは仮定
+Bldg_0580,Building_Solid,77.5,9.0,ftCode 3102 高さは仮定
+Bldg_0581,Building_Solid,77.0,9.0,ftCode 3102 高さは仮定
+Bldg_0582,Building_Solid,75.6,9.0,ftCode 3102 高さは仮定
+Bldg_0583,Building_Solid,74.9,9.0,ftCode 3102 高さは仮定
+Bldg_0584,Building_Solid,74.7,9.0,ftCode 3102 高さは仮定
+Bldg_0585,Building_Solid,73.9,9.0,ftCode 3102 高さは仮定
+Bldg_0586,Building_Solid,73.9,9.0,ftCode 3102 高さは仮定
+Bldg_0587,Building_Solid,71.4,9.0,ftCode 3102 高さは仮定
+Bldg_0588,Building_Solid,71.0,9.0,ftCode 3102 高さは仮定
+Bldg_0589,Building_Solid,69.4,9.0,ftCode 3102 高さは仮定
+Bldg_0590,Building_Solid,68.8,9.0,ftCode 3102 高さは仮定
+Bldg_0591,Building_Solid,68.4,9.0,ftCode 3102 高さは仮定
+Bldg_0592,Building_Solid,68.2,9.0,ftCode 3102 高さは仮定
+Bldg_0593,Building_Solid,68.1,9.0,ftCode 3102 高さは仮定
+Bldg_0594,Building_Solid,67.8,9.0,ftCode 3102 高さは仮定
+Bldg_0595,Building_Solid,67.3,9.0,ftCode 3102 高さは仮定
+Bldg_0596,Building_Solid,66.6,9.0,ftCode 3102 高さは仮定
+Bldg_0597,Building_Solid,66.6,9.0,ftCode 3102 高さは仮定
+Bldg_0598,Building_Solid,65.3,9.0,ftCode 3102 高さは仮定
+Bldg_0599,Building_Solid,63.9,9.0,ftCode 3102 高さは仮定
+Bldg_0600,Building_Solid,62.6,9.0,ftCode 3102 高さは仮定
+Bldg_0601,Building_Solid,62.3,9.0,ftCode 3102 高さは仮定
+Bldg_0602,Building_Solid,61.8,9.0,ftCode 3102 高さは仮定
+Bldg_0603,Building_Solid,59.7,9.0,ftCode 3102 高さは仮定
+Bldg_0604,Building_Solid,56.4,9.0,ftCode 3102 高さは仮定
+Bldg_0605,Building_Solid,55.0,9.0,ftCode 3102 高さは仮定
+Bldg_0606,Building_Solid,54.9,9.0,ftCode 3102 高さは仮定
+Bldg_0607,Building_Solid,54.6,9.0,ftCode 3102 高さは仮定
+Bldg_0608,Building_Solid,52.9,9.0,ftCode 3102 高さは仮定
+Bldg_0609,Building_Solid,52.4,9.0,ftCode 3102 高さは仮定
+Bldg_0610,Building_Solid,52.3,9.0,ftCode 3102 高さは仮定
+Bldg_0611,Building_Solid,52.0,9.0,ftCode 3102 高さは仮定
+Bldg_0612,Building_Solid,51.9,9.0,ftCode 3102 高さは仮定
+Bldg_0613,Building_Solid,49.0,9.0,ftCode 3102 高さは仮定
+Bldg_0614,Building_Solid,48.6,9.0,ftCode 3102 高さは仮定
+Bldg_0615,Building_Solid,47.5,9.0,ftCode 3102 高さは仮定
+Bldg_0616,Building_Solid,47.3,9.0,ftCode 3102 高さは仮定
+Bldg_0617,Building_Solid,46.9,9.0,ftCode 3102 高さは仮定
+Bldg_0618,Building_Solid,46.1,9.0,ftCode 3102 高さは仮定
+Bldg_0619,Building_Solid,46.0,9.0,ftCode 3102 高さは仮定
+Bldg_0620,Building_Solid,42.4,9.0,ftCode 3102 高さは仮定
+Bldg_0621,Building_Solid,41.1,9.0,ftCode 3102 高さは仮定
+Bldg_0622,Building_Solid,39.4,9.0,ftCode 3102 高さは仮定
+Bldg_0623,Building_Solid,39.4,9.0,ftCode 3102 高さは仮定
+Bldg_0624,Building_Solid,38.0,9.0,ftCode 3102 高さは仮定
+Bldg_0625,Building_Solid,35.3,9.0,ftCode 3102 高さは仮定
+Bldg_0626,Building_Solid,33.1,9.0,ftCode 3102 高さは仮定
+Bldg_0627,Building_Solid,31.9,9.0,ftCode 3102 高さは仮定
+Bldg_0628,Building_Solid,31.5,9.0,ftCode 3102 高さは仮定
+Bldg_0629,Building_Solid,30.1,9.0,ftCode 3102 高さは仮定
+Bldg_0630,Building_Solid,21.0,9.0,ftCode 3102 高さは仮定
+Bldg_0631,Building_Solid,5.9,9.0,ftCode 3102 高さは仮定
+Bldg_0632,Building_Shed,1455.3,3.5,ftCode 3111 高さは仮定
+Bldg_0633,Building_Shed,124.4,3.5,ftCode 3111 高さは仮定
+Bldg_0634,Building_Shed,122.2,3.5,ftCode 3111 高さは仮定
+Bldg_0635,Building_Shed,115.9,3.5,ftCode 3111 高さは仮定
+Bldg_0636,Building_Shed,113.8,3.5,ftCode 3111 高さは仮定
+Bldg_0637,Building_Shed,103.1,3.5,ftCode 3111 高さは仮定
+Bldg_0638,Building_Shed,93.2,3.5,ftCode 3111 高さは仮定
+Bldg_0639,Building_Shed,89.8,3.5,ftCode 3111 高さは仮定
+Bldg_0640,Building_Shed,85.1,3.5,ftCode 3111 高さは仮定
+Bldg_0641,Building_Shed,83.7,3.5,ftCode 3111 高さは仮定
+Bldg_0642,Building_Shed,75.7,3.5,ftCode 3111 高さは仮定
+Bldg_0643,Building_Shed,62.5,3.5,ftCode 3111 高さは仮定
+Bldg_0644,Building_Shed,50.3,3.5,ftCode 3111 高さは仮定
+Bldg_0645,Building_Shed,45.4,3.5,ftCode 3111 高さは仮定
+Bldg_0646,Building_Shed,43.5,3.5,ftCode 3111 高さは仮定
+Bldg_0647,Building_Shed,43.5,3.5,ftCode 3111 高さは仮定
+Bldg_0648,Building_Shed,41.2,3.5,ftCode 3111 高さは仮定
+Bldg_0649,Building_Shed,36.3,3.5,ftCode 3111 高さは仮定
+Bldg_0650,Building_Shed,35.9,3.5,ftCode 3111 高さは仮定
+Bldg_0651,Building_Shed,32.0,3.5,ftCode 3111 高さは仮定
+Bldg_0652,Building_Shed,27.9,3.5,ftCode 3111 高さは仮定
+Bldg_0653,Building_Shed,25.8,3.5,ftCode 3111 高さは仮定
+Bldg_0654,Building_Shed,23.1,3.5,ftCode 3111 高さは仮定
+Bldg_0655,Building_Shed,22.5,3.5,ftCode 3111 高さは仮定
+Bldg_0656,Building_Shed,22.2,3.5,ftCode 3111 高さは仮定
+Bldg_0657,Building_Shed,20.3,3.5,ftCode 3111 高さは仮定
+Bldg_0658,Building_Shed,19.1,3.5,ftCode 3111 高さは仮定
+Bldg_0659,Building_Shed,16.7,3.5,ftCode 3111 高さは仮定
+Bldg_0660,Building_Shed,15.6,3.5,ftCode 3111 高さは仮定
+Bldg_0661,Building_Shed,15.2,3.5,ftCode 3111 高さは仮定
+Bldg_0662,Building_Shed,14.7,3.5,ftCode 3111 高さは仮定
+Bldg_0663,Building_Shed,13.9,3.5,ftCode 3111 高さは仮定
+Bldg_0664,Building_Shed,13.8,3.5,ftCode 3111 高さは仮定
+Bldg_0665,Building_Shed,13.4,3.5,ftCode 3111 高さは仮定
+Bldg_0666,Building_Shed,13.4,3.5,ftCode 3111 高さは仮定
+Bldg_0667,Building_Shed,11.7,3.5,ftCode 3111 高さは仮定
+Bldg_0668,Building_Shed,10.7,3.5,ftCode 3111 高さは仮定
+Bldg_0669,Building_Shed,10.1,3.5,ftCode 3111 高さは仮定
+Bldg_0670,Building_Shed,9.1,3.5,ftCode 3111 高さは仮定
+Bldg_0671,Building_Shed,8.9,3.5,ftCode 3111 高さは仮定
+Bldg_0672,Building_Shed,7.6,3.5,ftCode 3111 高さは仮定
+Bldg_0673,Building_Shed,3.1,3.5,ftCode 3111 高さは仮定
+Road_0001,Road,401.5,0.5,幅員 4.5m
+Road_0002,Road,227.0,0.5,幅員 4.5m
+Road_0003,Road,129.3,0.5,幅員 3.0m
+Road_0004,Road,336.7,0.5,幅員 8.0m
+Road_0005,Road,50.4,0.5,幅員 4.5m
+Road_0006,Road,57.3,0.5,幅員 4.5m
+Road_0007,Road,189.4,0.5,幅員 4.5m
+Road_0008,Road,438.6,0.5,幅員 50m
+Road_0009,Road,344.6,0.5,幅員 4.5m
+Road_0010,Road,96.9,0.5,幅員 8.0m
+Road_0011,Road,239.7,0.5,幅員 8.0m
+Road_0012,Road,52.6,0.5,幅員 4.5m
+Road_0013,Road,120.9,0.5,幅員 3.0m
+Road_0014,Road,132.1,0.5,幅員 4.5m
+Road_0015,Road,1664.2,0.5,幅員 50m
+Rail_0001,Rail,126.3,0.5,幅員 3.0m
+Rail_0002,Rail,20.5,0.5,幅員 3.0m
+Rail_0003,Rail,126.2,0.5,幅員 3.0m
+Rail_0004,Rail,105.7,0.5,幅員 3.0m
+Road_0016,Road,45.5,0.5,幅員 4.5m
+Road_0017,Road,5.6,0.5,幅員 3.0m
+Road_0018,Road,70.7,0.5,幅員 8.0m
+Road_0019,Road,33.6,0.5,幅員 4.5m
+Road_0020,Road,90.9,0.5,幅員 2.0m
+Road_0021,Road,1.6,0.5,幅員 2.0m
+Road_0022,Road,331.9,0.5,幅員 4.5m
+Road_0023,Road,53.0,0.5,幅員 2.0m
+Road_0024,Road,18.7,0.5,幅員 2.0m
+Road_0025,Road,145.9,0.5,幅員 3.0m
+Road_0026,Road,93.7,0.5,幅員 2.0m
+Road_0027,Road,119.5,0.5,幅員 3.0m
+Road_0028,Road,137.5,0.5,幅員 4.5m
+Road_0029,Road,437.8,0.5,幅員 4.5m
+Road_0030,Road,164.4,0.5,幅員 4.5m
+Road_0031,Road,170.7,0.5,幅員 8.0m
+Road_0032,Road,135.6,0.5,幅員 2.0m
+Road_0033,Road,230.4,0.5,幅員 8.0m
+Road_0034,Road,105.6,0.5,幅員 8.0m
+Road_0035,Road,713.9,0.5,幅員 8.0m
+Road_0036,Road,108.0,0.5,幅員 3.0m
+Road_0037,Road,990.0,0.5,幅員 25m
+Road_0038,Road,92.9,0.5,幅員 25m
+Road_0039,Road,114.2,0.5,幅員 25m
+Road_0040,Road,704.1,0.5,幅員 25m
+Road_0041,Road,60.4,0.5,幅員 3.0m
+Road_0042,Road,194.5,0.5,幅員 3.0m
+Road_0043,Road,77.5,0.5,幅員 4.5m
+Road_0044,Road,291.0,0.5,幅員 8.0m
+Road_0045,Road,218.1,0.5,幅員 8.0m
+Road_0046,Road,41.3,0.5,幅員 8.0m
+Road_0047,Road,166.7,0.5,幅員 4.5m
+Road_0048,Road,174.2,0.5,幅員 4.5m
+Road_0049,Road,95.8,0.5,幅員 3.0m
+Road_0050,Road,146.9,0.5,幅員 4.5m
+Road_0051,Road,673.9,0.5,幅員 25m
+Road_0052,Road,501.4,0.5,幅員 25m
+Road_0053,Road,556.2,0.5,幅員 8.0m
+Road_0054,Road,573.5,0.5,幅員 25m
+Road_0055,Road,436.4,0.5,幅員 25m
+Road_0056,Road,936.4,0.5,幅員 25m
+Road_0057,Road,228.6,0.5,幅員 4.5m
+Road_0058,Road,88.0,0.5,幅員 3.0m
+Road_0059,Road,37.9,0.5,幅員 3.0m
+Road_0060,Road,80.8,0.5,幅員 2.0m
+Road_0061,Road,54.7,0.5,幅員 4.5m
+Road_0062,Road,107.2,0.5,幅員 4.5m
+Road_0063,Road,14.3,0.5,幅員 2.0m
+Road_0064,Road,60.1,0.5,幅員 2.0m
+Road_0065,Road,217.9,0.5,幅員 4.5m
+Road_0066,Road,276.4,0.5,幅員 4.5m
+Road_0067,Road,191.5,0.5,幅員 3.0m
+Road_0068,Road,324.3,0.5,幅員 4.5m
+Road_0069,Road,746.2,0.5,幅員 25m
+Road_0070,Road,122.8,0.5,幅員 25m
+Road_0071,Road,187.3,0.5,幅員 25m
+Road_0072,Road,138.6,0.5,幅員 3.0m
+Road_0073,Road,72.8,0.5,幅員 3.0m
+Road_0074,Road,93.4,0.5,幅員 4.5m
+Road_0075,Road,78.9,0.5,幅員 4.5m
+Road_0076,Road,69.9,0.5,幅員 3.0m
+Road_0077,Road,36.3,0.5,幅員 3.0m
+Road_0078,Road,55.9,0.5,幅員 3.0m
+Road_0079,Road,79.7,0.5,幅員 4.5m
+Road_0080,Road,12.7,0.5,幅員 4.5m
+Road_0081,Road,267.3,0.5,幅員 8.0m
+Road_0082,Road,399.9,0.5,幅員 8.0m
+Road_0083,Road,136.2,0.5,幅員 2.0m
+Road_0084,Road,155.3,0.5,幅員 8.0m
+Road_0085,Road,15.8,0.5,幅員 2.0m
+Road_0086,Road,13.7,0.5,幅員 2.0m
+Road_0087,Road,60.3,0.5,幅員 8.0m
+Road_0088,Road,565.2,0.5,幅員 8.0m
+Road_0089,Road,180.9,0.5,幅員 2.0m
+Road_0090,Road,3.5,0.5,幅員 2.0m
+Road_0091,Road,96.0,0.5,幅員 2.0m
+Road_0092,Road,70.1,0.5,幅員 2.0m
+Road_0093,Road,178.5,0.5,幅員 2.0m
+Road_0094,Road,85.8,0.5,幅員 2.0m
+Road_0095,Road,87.3,0.5,幅員 2.0m
+Road_0096,Road,35.6,0.5,幅員 2.0m
+Road_0097,Road,39.0,0.5,幅員 2.0m
+Road_0098,Road,20.3,0.5,幅員 2.0m
+Road_0099,Road,11.6,0.5,幅員 2.0m
+Road_0100,Road,3.0,0.5,幅員 2.0m
+Road_0101,Road,54.0,0.5,幅員 2.0m
+Road_0102,Road,92.8,0.5,幅員 2.0m
+Road_0103,Road,90.1,0.5,幅員 2.0m
+Road_0104,Road,52.0,0.5,幅員 2.0m
+Road_0105,Road,84.3,0.5,幅員 2.0m
+Road_0106,Road,5.2,0.5,幅員 2.0m
+Road_0107,Road,58.6,0.5,幅員 2.0m
+Road_0108,Road,55.7,0.5,幅員 2.0m
+Road_0109,Road,128.8,0.5,幅員 2.0m
+Road_0110,Road,54.8,0.5,幅員 2.0m
+Road_0111,Road,56.3,0.5,幅員 2.0m
+Road_0112,Road,44.7,0.5,幅員 2.0m
+Road_0113,Road,47.4,0.5,幅員 2.0m
+Road_0114,Road,133.9,0.5,幅員 3.0m
+Road_0115,Road,56.8,0.5,幅員 4.5m
+Road_0116,Road,335.8,0.5,幅員 8.0m
+Road_0117,Road,12.6,0.5,幅員 3.0m
+Road_0118,Road,19.8,0.5,幅員 3.0m
+Road_0119,Road,75.0,0.5,幅員 3.0m
+Road_0120,Road,13.2,0.5,幅員 2.0m
+Road_0121,Road,80.2,0.5,幅員 2.0m
+Road_0122,Road,34.4,0.5,幅員 8.0m
+Road_0123,Road,153.8,0.5,幅員 2.0m
+Road_0124,Road,37.2,0.5,幅員 2.0m
+Road_0125,Road,40.1,0.5,幅員 2.0m
+Road_0126,Road,10.6,0.5,幅員 2.0m
+Road_0127,Road,89.2,0.5,幅員 2.0m
+Road_0128,Road,43.7,0.5,幅員 2.0m
+Road_0129,Road,105.0,0.5,幅員 4.5m
+Road_0130,Road,72.7,0.5,幅員 8.0m
+Road_0131,Road,68.5,0.5,幅員 4.5m
+Road_0132,Road,46.1,0.5,幅員 3.0m
+Road_0133,Road,71.9,0.5,幅員 4.5m
+Road_0134,Road,57.5,0.5,幅員 4.5m
+Road_0135,Road,173.5,0.5,幅員 3.0m
+Road_0136,Road,259.7,0.5,幅員 4.5m
+Road_0137,Road,99.5,0.5,幅員 4.5m
+Road_0138,Road,111.1,0.5,幅員 4.5m
+Road_0139,Road,64.1,0.5,幅員 4.5m
+Road_0140,Road,160.9,0.5,幅員 4.5m
+Road_0141,Road,83.6,0.5,幅員 2.0m
+Road_0142,Road,2241.3,0.5,幅員 50m
+Road_0143,Road,264.5,0.5,幅員 4.5m
+Road_0144,Road,478.9,0.5,幅員 50m
+Road_0145,Road,675.5,0.5,幅員 50m
+Road_0146,Road,338.9,0.5,幅員 8.0m
+Road_0147,Road,357.2,0.5,幅員 4.5m
+Road_0148,Road,47.0,0.5,幅員 4.5m
+Road_0149,Road,2732.2,0.5,幅員 50m
+Road_0150,Road,292.4,0.5,幅員 4.5m
+Road_0151,Road,1090.0,0.5,幅員 25m
+Road_0152,Road,365.3,0.5,幅員 25m
+Road_0153,Road,162.4,0.5,幅員 4.5m
+Road_0154,Road,64.6,0.5,幅員 3.0m
+Road_0155,Road,38.7,0.5,幅員 4.5m
+Road_0156,Road,243.9,0.5,幅員 4.5m
+Road_0157,Road,194.9,0.5,幅員 4.5m
+Road_0158,Road,222.1,0.5,幅員 3.0m
+Road_0159,Road,169.5,0.5,幅員 3.0m
+Road_0160,Road,51.8,0.5,幅員 3.0m
+Road_0161,Road,122.6,0.5,幅員 4.5m
+Road_0162,Road,1096.2,0.5,幅員 25m
+Road_0163,Road,345.1,0.5,幅員 25m
+Road_0164,Road,1092.9,0.5,幅員 50m
+Road_0165,Road,508.7,0.5,幅員 22.5m
+Road_0166,Road,93.2,0.5,幅員 2.0m
+Road_0167,Road,247.5,0.5,幅員 8.0m
+Road_0168,Road,69.1,0.5,幅員 2.0m
+Road_0169,Road,17.4,0.5,幅員 2.0m
+Road_0170,Road,237.7,0.5,幅員 22.5m
+Road_0171,Road,35.9,0.5,幅員 22.5m
+Road_0172,Road,85.7,0.5,幅員 22.5m
+Road_0173,Road,38.1,0.5,幅員 2.0m
+Road_0174,Road,1042.3,0.5,幅員 22.5m
+Road_0175,Road,132.6,0.5,幅員 22.5m
+Road_0176,Road,32.3,0.5,幅員 2.0m
+Road_0177,Road,159.2,0.5,幅員 8.0m
+Road_0178,Road,233.8,0.5,幅員 8.0m
+Road_0179,Road,211.2,0.5,幅員 3.0m
+Road_0180,Road,201.1,0.5,幅員 8.0m
+Road_0181,Road,219.5,0.5,幅員 8.0m
+Road_0182,Road,256.8,0.5,幅員 4.5m
+Road_0183,Road,598.5,0.5,幅員 8.0m
+Road_0184,Road,90.7,0.5,幅員 2.0m
+Road_0185,Road,34.7,0.5,幅員 2.0m
+Road_0186,Road,86.2,0.5,幅員 2.0m
+Road_0187,Road,80.5,0.5,幅員 2.0m
+Road_0188,Road,135.6,0.5,幅員 8.0m
+Road_0189,Road,93.8,0.5,幅員 8.0m
+Road_0190,Road,34.9,0.5,幅員 2.0m
+Road_0191,Road,26.3,0.5,幅員 2.0m
+Road_0192,Road,140.6,0.5,幅員 4.5m
+Road_0193,Road,775.4,0.5,幅員 8.0m
+Road_0194,Road,77.0,0.5,幅員 2.0m
+Road_0195,Road,96.0,0.5,幅員 2.0m
+Road_0196,Road,217.9,0.5,幅員 4.5m
+Road_0197,Road,53.1,0.5,幅員 2.0m
+Road_0198,Road,30.7,0.5,幅員 2.0m
+Road_0199,Road,18.9,0.5,幅員 2.0m
+Road_0200,Road,46.1,0.5,幅員 4.5m
+Road_0201,Road,36.5,0.5,幅員 2.0m
+Road_0202,Road,395.8,0.5,幅員 4.5m
+Road_0203,Road,31.6,0.5,幅員 2.0m
+Road_0204,Road,191.4,0.5,幅員 4.5m
+Road_0205,Road,66.7,0.5,幅員 2.0m
+Road_0206,Road,23.9,0.5,幅員 2.0m
+Road_0207,Road,44.8,0.5,幅員 4.5m
+Road_0208,Road,51.4,0.5,幅員 4.5m
+Road_0209,Road,98.1,0.5,幅員 2.0m
+Road_0210,Road,316.9,0.5,幅員 4.5m
+Road_0211,Road,23.7,0.5,幅員 2.0m
+Road_0212,Road,97.4,0.5,幅員 4.5m
+Road_0213,Road,251.7,0.5,幅員 4.5m
+Road_0214,Road,50.3,0.5,幅員 4.5m
+Road_0215,Road,27.3,0.5,幅員 2.0m
+Road_0216,Road,60.3,0.5,幅員 2.0m
+Road_0217,Road,131.3,0.5,幅員 4.5m
+Rail_0005,Rail,398.9,0.5,幅員 3.0m
+Rail_0006,Rail,252.5,0.5,幅員 3.0m
+Rail_0007,Rail,675.2,0.5,幅員 3.0m
+Rail_0008,Rail,195.2,0.5,幅員 3.0m
+Rail_0009,Rail,155.8,0.5,幅員 3.0m
+Rail_0010,Rail,314.4,0.5,幅員 3.0m
+Road_0218,Road,38.0,0.5,幅員 2.0m
+Road_0219,Road,52.5,0.5,幅員 2.0m
+Road_0220,Road,100.7,0.5,幅員 2.0m
+Road_0221,Road,230.0,0.5,幅員 4.5m
+Road_0222,Road,4.2,0.5,幅員 2.0m
+Road_0223,Road,22.6,0.5,幅員 2.0m
+Road_0224,Road,40.7,0.5,幅員 2.0m
+Road_0225,Road,9.5,0.5,幅員 2.0m
+Road_0226,Road,4.6,0.5,幅員 2.0m
+Road_0227,Road,126.0,0.5,幅員 2.0m
+Road_0228,Road,0.9,0.5,幅員 2.0m
+Road_0229,Road,1.9,0.5,幅員 2.0m
+Road_0230,Road,37.9,0.5,幅員 2.0m
+Road_0231,Road,29.0,0.5,幅員 2.0m
+Road_0232,Road,61.0,0.5,幅員 2.0m
+Road_0233,Road,36.5,0.5,幅員 2.0m
+Road_0234,Road,19.2,0.5,幅員 2.0m
+Road_0235,Road,4.4,0.5,幅員 2.0m
+Road_0236,Road,26.6,0.5,幅員 2.0m
+Road_0237,Road,41.8,0.5,幅員 2.0m
+Road_0238,Road,28.0,0.5,幅員 2.0m
+Road_0239,Road,32.2,0.5,幅員 2.0m
+Road_0240,Road,86.3,0.5,幅員 2.0m
+Road_0241,Road,30.3,0.5,幅員 2.0m
+Road_0242,Road,62.6,0.5,幅員 2.0m
+Road_0243,Road,110.1,0.5,幅員 2.0m
+Road_0244,Road,57.5,0.5,幅員 2.0m
+Road_0245,Road,7.4,0.5,幅員 2.0m
+Road_0246,Road,14.9,0.5,幅員 2.0m
+Road_0247,Road,509.2,0.5,幅員 4.5m
+Road_0248,Road,152.9,0.5,幅員 8.0m
+Road_0249,Road,183.7,0.5,幅員 8.0m
+Road_0250,Road,185.8,0.5,幅員 4.5m
+Road_0251,Road,94.3,0.5,幅員 8.0m
+Road_0252,Road,7.7,0.5,幅員 4.5m
+Road_0253,Road,124.4,0.5,幅員 22.5m
+Road_0254,Road,448.1,0.5,幅員 8.0m
+Road_0255,Road,79.7,0.5,幅員 4.5m
+Road_0256,Road,55.2,0.5,幅員 4.5m
+Road_0257,Road,511.3,0.5,幅員 4.5m
+Road_0258,Road,509.7,0.5,幅員 4.5m
+Road_0259,Road,285.1,0.5,幅員 8.0m
+Road_0260,Road,190.9,0.5,幅員 4.5m
+Road_0261,Road,392.9,0.5,幅員 4.5m
+Road_0262,Road,80.2,0.5,幅員 4.5m
+Road_0263,Road,347.3,0.5,幅員 3.0m
+Road_0264,Road,251.5,0.5,幅員 8.0m
+Road_0265,Road,109.9,0.5,幅員 4.5m
+Road_0266,Road,208.3,0.5,幅員 8.0m
+Road_0267,Road,90.6,0.5,幅員 4.5m
+Road_0268,Road,182.9,0.5,幅員 4.5m
+Road_0269,Road,176.9,0.5,幅員 4.5m
+Road_0270,Road,137.0,0.5,幅員 4.5m
+Road_0271,Road,92.0,0.5,幅員 3.0m
+Road_0272,Road,24.3,0.5,幅員 4.5m
+Road_0273,Road,40.4,0.5,幅員 4.5m
+Road_0274,Road,61.4,0.5,幅員 4.5m
+Road_0275,Road,164.7,0.5,幅員 4.5m
+Road_0276,Road,118.8,0.5,幅員 22.5m
+Road_0277,Road,240.4,0.5,幅員 22.5m
+Road_0278,Road,107.8,0.5,幅員 22.5m
+Road_0279,Road,69.1,0.5,幅員 22.5m
+Road_0280,Road,369.2,0.5,幅員 4.5m
+Road_0281,Road,1729.5,0.5,幅員 22.5m
+Road_0282,Road,338.0,0.5,幅員 8.0m
+Road_0283,Road,212.7,0.5,幅員 22.5m
+Road_0284,Road,154.7,0.5,幅員 22.5m
+Road_0285,Road,587.5,0.5,幅員 8.0m
+Road_0286,Road,181.9,0.5,幅員 4.5m
+Road_0287,Road,143.7,0.5,幅員 4.5m
+Road_0288,Road,166.4,0.5,幅員 3.0m
+Road_0289,Road,118.3,0.5,幅員 4.5m
+Road_0290,Road,101.7,0.5,幅員 4.5m
+Road_0291,Road,125.6,0.5,幅員 3.0m
+Road_0292,Road,270.8,0.5,幅員 22.5m
+Road_0293,Road,441.9,0.5,幅員 22.5m
+Road_0294,Road,78.5,0.5,幅員 4.5m
+Road_0295,Road,115.2,0.5,幅員 4.5m
+Road_0296,Road,503.2,0.5,幅員 8.0m
+Road_0297,Road,98.7,0.5,幅員 3.0m
+Road_0298,Road,261.4,0.5,幅員 8.0m
+Road_0299,Road,164.5,0.5,幅員 4.5m
+Road_0300,Road,105.0,0.5,幅員 4.5m
+Road_0301,Road,275.0,0.5,幅員 8.0m
+Road_0302,Road,489.4,0.5,幅員 8.0m
+Road_0303,Road,160.3,0.5,幅員 3.0m
+Road_0304,Road,200.4,0.5,幅員 8.0m
+Road_0305,Road,189.7,0.5,幅員 8.0m
+Road_0306,Road,131.9,0.5,幅員 4.5m
+Road_0307,Road,173.0,0.5,幅員 8.0m
+Road_0308,Road,111.1,0.5,幅員 4.5m
+Road_0309,Road,189.0,0.5,幅員 3.0m
+Road_0310,Road,91.3,0.5,幅員 4.5m
+Road_0311,Road,80.2,0.5,幅員 4.5m
+Road_0312,Road,143.0,0.5,幅員 4.5m
+Road_0313,Road,3.3,0.5,幅員 4.5m
+Road_0314,Road,343.2,0.5,幅員 8.0m
+Road_0315,Road,5.0,0.5,幅員 8.0m
+Road_0316,Road,134.0,0.5,幅員 3.0m
+Road_0317,Road,199.9,0.5,幅員 4.5m
+Road_0318,Road,355.7,0.5,幅員 8.0m
+Road_0319,Road,441.7,0.5,幅員 8.0m
+Road_0320,Road,105.9,0.5,幅員 2.0m
+Road_0321,Road,371.1,0.5,幅員 4.5m
+Road_0322,Road,546.2,0.5,幅員 8.0m
+Road_0323,Road,91.2,0.5,幅員 8.0m
+Road_0324,Road,298.8,0.5,幅員 8.0m
+Rail_0011,Rail,40.5,0.5,幅員 3.0m
+Rail_0012,Rail,462.7,0.5,幅員 3.0m
+Rail_0013,Rail,422.2,0.5,幅員 3.0m
+Rail_0014,Rail,462.7,0.5,幅員 3.0m
+Road_0325,Road,2.1,0.5,幅員 8.0m
+Road_0326,Road,163.3,0.5,幅員 2.0m
+Road_0327,Road,38.7,0.5,幅員 2.0m
+Road_0328,Road,7.8,0.5,幅員 2.0m
+Road_0329,Road,97.3,0.5,幅員 8.0m
