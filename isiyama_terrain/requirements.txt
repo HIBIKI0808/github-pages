@@ -7,3 +7,4 @@ shapely
 mapbox-vector-tile
 mapbox-earcut
 matplotlib
+pycollada

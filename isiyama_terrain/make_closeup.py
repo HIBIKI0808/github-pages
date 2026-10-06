@@ -262,6 +262,32 @@ def write_obj(objs, stem):
             off += len(mesh.vertices)
 
 
+def write_dae(objs, stem):
+    """SketchUp(.skpの代替)に直接読み込めるCollada(.dae)。座標はmm、unit=0.001mで実寸。"""
+    import collada
+    mesh = collada.Collada()
+    mesh.assetInfo.unitname, mesh.assetInfo.unitmeter = "millimeter", 1.0 / UNIT_PER_M
+    mesh.assetInfo.upaxis = collada.asset.UP_AXIS.Z_UP
+    mats = {}
+    for cat, kd in MATERIALS.items():
+        eff = collada.material.Effect(f"{cat}_fx", [], "lambert", diffuse=(*kd, 1.0), double_sided=True)
+        mat = collada.material.Material(f"{cat}_mat", cat, eff)
+        mesh.effects.append(eff); mesh.materials.append(mat); mats[cat] = mat
+    nodes = []
+    for name, cat, m in objs:
+        v = (m.vertices * UNIT_PER_M).astype(np.float32)
+        src = collada.source.FloatSource(f"{name}-v", v.ravel(), ("X", "Y", "Z"))
+        geom = collada.geometry.Geometry(mesh, f"{name}-g", name, [src])
+        ils = collada.source.InputList()
+        ils.addInput(0, "VERTEX", f"#{name}-v")
+        geom.primitives.append(geom.createTriangleSet(m.faces.astype(np.int32).ravel(), ils, f"{cat}_mat"))
+        mesh.geometries.append(geom)
+        nodes.append(collada.scene.Node(name, children=[collada.scene.GeometryNode(geom, [collada.scene.MaterialNode(f"{cat}_mat", mats[cat], inputs=[])])]))
+    mesh.scenes.append(collada.scene.Scene("scene", nodes))
+    mesh.scene = mesh.scenes[0]
+    mesh.write(str(HERE / f"{stem}.dae"))
+
+
 def main():
     print(f"中心 ({CENTER_LAT}, {CENTER_LON}) / 範囲 {SIZE_M:g}m角 / 単位 1={1000 / UNIT_PER_M:g}mm")
     feats = collect(fetch_vector_tiles())
@@ -324,6 +350,7 @@ def main():
 
     nw = [name for name, _, m in objs if not (m.is_watertight and m.volume > 0)]
     write_obj(objs, OUT_STEM)
+    write_dae(objs, OUT_STEM)
     with open(HERE / f"{OUT_STEM}_objects.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(["name", "category", "area_m2", "height_or_thickness_m", "note"])
