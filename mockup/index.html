@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI木曜会 | Instagram プロフィール モックアップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2f5444;
+    --lime: #dbe48f;
+    --ink: #000;
+    --sub: #737373;
+    --line: #dbdbdb;
+    --btn: #efefef;
+    --link: #00376b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans JP", sans-serif;
+    background: #e9ecdf;
+    color: var(--ink);
+    display: flex;
+    justify-content: center;
+    padding: 32px 12px;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+  .phone {
+    width: 390px;
+    background: #fff;
+    border-radius: 44px;
+    overflow: hidden;
+    box-shadow: 0 0 0 10px #111, 0 30px 60px rgba(0,0,0,.25);
+    position: relative;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  svg.i { width: 24px; height: 24px; fill: none; stroke: #000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+  /* status bar */
+  .status { height: 47px; display: flex; align-items: center; justify-content: space-between; padding: 12px 28px 0 36px; font-weight: 600; font-size: 16px; }
+  .status .r { display: flex; gap: 6px; align-items: center; }
+
+  /* 1. top bar */
+  .topbar { height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+  .topbar .user { display: flex; align-items: center; gap: 4px; font-weight: 700; font-size: 22px; letter-spacing: -.2px; }
+  .topbar .user svg { width: 14px; height: 14px; }
+  .topbar .actions { display: flex; gap: 22px; }
+  .topbar .actions svg { width: 26px; height: 26px; }
+
+  /* 2. header */
+  .header { display: flex; align-items: center; padding: 10px 16px 0; gap: 24px; }
+  .avatar { width: 86px; height: 86px; border-radius: 50%; flex-shrink: 0; position: relative; }
+  .avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; border: 1px solid #e5e5e5; }
+  .avatar .plus { position: absolute; right: -2px; bottom: -2px; width: 26px; height: 26px; border-radius: 50%; background: #000; border: 3px solid #fff; display: grid; place-items: center; }
+  .avatar .plus svg { width: 12px; height: 12px; stroke: #fff; stroke-width: 3; }
+  .stats-wrap { flex: 1; }
+  .stats-wrap .name { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .stats { display: flex; justify-content: space-between; padding-right: 12px; }
+  .stat { text-align: left; }
+  .stat b { display: block; font-size: 17px; font-weight: 700; line-height: 22px; }
+  .stat span { font-size: 14px; }
+
+  /* 3. bio */
+  .bio { padding: 12px 16px 0; }
+  .bio .cat { color: var(--sub); }
+  .bio p { margin-top: 2px; }
+  .bio .dummy { color: #b5b5b5; }
+  .bio .link { display: flex; align-items: center; gap: 4px; color: var(--link); font-weight: 600; margin-top: 2px; }
+  .bio .link svg { width: 14px; height: 14px; stroke: var(--link); transform: rotate(-45deg); }
+
+  /* 4. buttons */
+  .btns { display: flex; gap: 6px; padding: 14px 16px 0; }
+  .btns button { flex: 1; height: 34px; border: 0; border-radius: 8px; background: var(--btn); font: inherit; font-weight: 600; font-size: 14px; color: #000; }
+  .btns button.sq { flex: 0 0 34px; display: grid; place-items: center; }
+  .btns button.sq svg { width: 16px; height: 16px; }
+
+  /* 5. highlights */
+  .highlights { display: flex; gap: 14px; padding: 18px 16px 10px; overflow-x: auto; scrollbar-width: none; }
+  .hl { width: 66px; flex-shrink: 0; text-align: center; }
+  .hl .ring { width: 66px; height: 66px; border-radius: 50%; border: 1px solid var(--line); padding: 3px; }
+  .hl .ring > div { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: #f3f4ea; }
+  .hl .ring svg { width: 100%; height: 100%; display: block; }
+  .hl .t { font-size: 12px; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hl.new .ring > div { background: #fff; }
+  .hl.new svg.i { width: 26px; height: 26px; stroke-width: 1.5; }
+
+  /* 6. tabs */
+  .tabs { display: flex; margin-top: 6px; border-bottom: 1px solid var(--line); }
+  .tabs div { flex: 1; height: 44px; display: grid; place-items: center; position: relative; }
+  .tabs div svg { stroke: #a8a8a8; }
+  .tabs div.on svg { stroke: #000; }
+  .tabs div.on::after { content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 1px; background: #000; }
+
+  /* 7. grid */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding-bottom: 2px; }
+  .cell { aspect-ratio: 1 / 1; position: relative; overflow: hidden; }
+  .cell svg.tile { width: 100%; height: 100%; display: block; }
+  .cell .multi { position: absolute; top: 6px; right: 6px; width: 16px; height: 16px; }
+  .ph { background: #efefef; display: grid; place-items: center; color: #b0b0b0; font-size: 11px; text-align: center; }
+  .ph svg { width: 28px; height: 28px; stroke: #c4c4c4; stroke-width: 1.5; margin: 0 auto 4px; }
+
+  /* bottom nav */
+  .nav { height: 84px; border-top: 1px solid var(--line); display: flex; justify-content: space-around; align-items: flex-start; padding-top: 12px; position: sticky; bottom: 0; background: #fff; }
+  .nav svg.i { width: 26px; height: 26px; }
+  .nav .me { width: 28px; height: 28px; border-radius: 50%; overflow: hidden; outline: 2px solid #000; outline-offset: 1px; }
+  .nav .me img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .home-ind { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: #000; }
+</style>
+</head>
+<body>
+
+<!-- ===== 共有グラフィック定義（キャラクター／パノラマ） ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecf1a1"/>
+      <stop offset=".55" stop-color="#eceed8"/>
+      <stop offset="1" stop-color="#e7e7ea"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .09 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <!-- 4点スター -->
+    <path id="star" d="M0,-1 Q0,0 1,0 Q0,0 0,1 Q0,0 -1,0 Q0,0 0,-1Z"/>
+    <!-- もこもこフラワー（半径約1） -->
+    <g id="flower">
+      <circle r=".62"/>
+      <circle cx="0" cy="-.62" r=".38"/><circle cx=".44" cy="-.44" r=".38"/>
+      <circle cx=".62" cy="0" r=".38"/><circle cx=".44" cy=".44" r=".38"/>
+      <circle cx="0" cy=".62" r=".38"/><circle cx="-.44" cy=".44" r=".38"/>
+      <circle cx="-.62" cy="0" r=".38"/><circle cx="-.44" cy="-.44" r=".38"/>
+    </g>
+    <!-- 目（右向きハイライト / 左向きハイライト） -->
+    <g id="eyeR">
+      <ellipse rx="25" ry="29" fill="#241a1a"/>
+      <path d="M2,-14 A14,14 0 0 1 2,14" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+    </g>
+    <g id="eyeL">
+      <ellipse rx="25" ry="29" fill="#241a1a"/>
+      <path d="M2,-14 A14,14 0 0 0 2,14" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- キャラ：シカク（中心0,0 / 約±250） -->
+    <g id="chSquare">
+      <rect x="-250" y="-250" width="500" height="500" rx="26" fill="#2f5444"/>
+      <use href="#eyeR" x="-150" y="-80" transform="rotate(-8 -150 -80)"/>
+      <use href="#eyeR" x="-60" y="-110" transform="rotate(-8 -60 -110)"/>
+    </g>
+    <!-- キャラ：サンカク（左向き） -->
+    <g id="chTriangle">
+      <path d="M-270,0 L170,-250 Q190,-260 190,-236 L190,236 Q190,260 170,250 Z" fill="#dbe48f"/>
+      <use href="#eyeL" x="-20" y="-30"/>
+      <use href="#eyeL" x="50" y="10"/>
+      <rect x="-30" y="-82" width="22" height="7" rx="3.5" fill="#241a1a" transform="rotate(18 -19 -78)"/>
+    </g>
+
+    <!-- 3枚つづきパノラマ（3000 x 1000） -->
+    <g id="pano">
+      <rect width="3000" height="1000" fill="url(#bgGrad)"/>
+
+      <!-- tile 1 : ロゴ + ライトフラワー -->
+      <g transform="translate(118 150) scale(62)" fill="#2f5444"><use href="#flower"/></g>
+      <g transform="translate(118 150) scale(20)" fill="#ecf1a1"><use href="#star"/></g>
+      <text x="205" y="187" font-family="Montserrat, sans-serif" font-weight="700" font-size="104" fill="#1f3d31" letter-spacing="3">MOKYOKAI</text>
+      <g transform="translate(520 590) rotate(12) scale(290)" fill="#dbe48f"><use href="#flower"/></g>
+      <g transform="translate(520 590) rotate(12) scale(105)" fill="#2f5444"><use href="#star"/></g>
+      <text font-family="Noto Sans JP, sans-serif" font-weight="700" font-size="54" fill="#2f5444" letter-spacing="10">
+        <tspan x="70" y="950">AI木曜会</tspan>
+      </text>
+
+      <!-- tile 2 : シカク -->
+      <g transform="translate(1500 560) rotate(-20)"><use href="#chSquare"/></g>
+      <text font-family="Montserrat, sans-serif" font-weight="700" font-size="40" fill="#1f3d31" letter-spacing="6" text-anchor="middle">
+        <tspan x="1500" y="140">EVERY THURSDAY</tspan>
+      </text>
+
+      <!-- tile 3 : サンカク + ダークフラワー -->
+      <g transform="translate(2400 430) rotate(-6)"><use href="#chTriangle"/></g>
+      <g transform="translate(2730 740) rotate(-8) scale(205)" fill="#2f5444"><use href="#flower"/></g>
+      <g transform="translate(2730 740) rotate(-8) scale(75)" fill="#dbe48f"><use href="#star"/></g>
+      <text font-family="Montserrat, sans-serif" font-weight="700" font-size="56" fill="#1f3d31" letter-spacing="5" text-anchor="end">
+        <tspan x="2930" y="130">MOK</tspan><tspan x="2930" y="195">YOKAI</tspan>
+      </text>
+
+      <rect width="3000" height="1000" filter="url(#grain)"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="phone">
+
+  <!-- status bar -->
+  <div class="status">
+    <span>9:41</span>
+    <span class="r">
+      <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.5 7a6.4 6.4 0 0 1 9 0l1.5-1.5a8.5 8.5 0 0 0-12 0zM0 3.5a11.3 11.3 0 0 1 16 0L14.5 2A13.4 13.4 0 0 0 1.5 2z"/></svg>
+      <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#000" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2"/><rect x="25" y="4.5" width="1.5" height="4" rx=".7" opacity=".4"/></svg>
+    </span>
+  </div>
+
+  <!-- 1. 上部バー -->
+  <div class="topbar">
+    <div class="user">
+      ai_mokuyokai
+      <svg class="i" viewBox="0 0 24 24" style="stroke-width:3"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="actions">
+      <svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></svg>
+      <svg class="i" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </div>
+  </div>
+
+  <!-- 2. プロフィールヘッダー -->
+  <div class="header">
+    <div class="avatar">
+      <img src="assets/icon.jpg" alt="AI木曜会 アイコン">
+      <div class="plus"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+    </div>
+    <div class="stats-wrap">
+      <div class="name">AI木曜会</div>
+      <div class="stats">
+        <div class="stat"><b>9</b><span>投稿</span></div>
+        <div class="stat"><b>1,234</b><span>フォロワー</span></div>
+        <div class="stat"><b>56</b><span>フォロー中</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. プロフィール詳細 -->
+  <div class="bio">
+    <div class="cat">コミュニティ</div>
+    <p class="dummy">自己紹介テキストがここに入ります。<br>ダミーテキスト ダミーテキスト ダミーテキスト</p>
+    <a class="link">
+      <svg class="i" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+      example.com/link
+    </a>
+  </div>
+
+  <!-- 4. アクションボタン -->
+  <div class="btns">
+    <button>プロフィールを編集</button>
+    <button>プロフィールをシェア</button>
+    <button class="sq"><svg class="i" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 20c0-3.5 3-6 7-6s7 2.5 7 6M19 8v6M16 11h6"/></svg></button>
+  </div>
+
+  <!-- 5. ストーリーハイライト -->
+  <div class="highlights">
+    <div class="hl">
+      <div class="ring"><div>
+        <svg viewBox="-300 -300 600 600"><rect x="-300" y="-300" width="600" height="600" fill="#eef1c9"/><g transform="translate(10 10) rotate(-12) scale(.95)"><use href="#chSquare"/></g></svg>
+      </div></div>
+      <div class="t">ABOUT</div>
+    </div>
+    <div class="hl">
+      <div class="ring"><div>
+        <svg viewBox="-300 -300 600 600"><rect x="-300" y="-300" width="600" height="600" fill="#2f5444"/><g transform="translate(50 0) scale(1.1)"><use href="#chTriangle"/></g></svg>
+      </div></div>
+      <div class="t">EVENT</div>
+    </div>
+    <div class="hl">
+      <div class="ring"><div>
+        <svg viewBox="-300 -300 600 600"><rect x="-300" y="-300" width="600" height="600" fill="#eef1c9"/><g transform="translate(-40 -30) rotate(10) scale(.8)"><use href="#chSquare"/></g><g transform="translate(150 150) rotate(10) scale(.5)"><use href="#chTriangle"/></g></svg>
+      </div></div>
+      <div class="t">REPORT</div>
+    </div>
+    <div class="hl">
+      <div class="ring"><div>
+        <svg viewBox="-300 -300 600 600"><rect x="-300" y="-300" width="600" height="600" fill="#2f5444"/><g transform="translate(40 -20) scale(.85) rotate(-15)"><use href="#chTriangle"/></g><g transform="translate(-160 170) scale(.38) rotate(-15)"><use href="#chSquare"/></g></svg>
+      </div></div>
+      <div class="t">MEMBER</div>
+    </div>
+    <div class="hl">
+      <div class="ring"><div>
+        <svg viewBox="-300 -300 600 600"><rect x="-300" y="-300" width="600" height="600" fill="#eef1c9"/><g transform="translate(-120 10) rotate(-10) scale(.45)"><use href="#chSquare"/></g><g transform="translate(150 0) scale(.55)"><use href="#chTriangle"/></g></svg>
+      </div></div>
+      <div class="t">Q&amp;A</div>
+    </div>
+    <div class="hl new">
+      <div class="ring"><div>
+        <svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      </div></div>
+      <div class="t">新規</div>
+    </div>
+  </div>
+
+  <!-- 6. タブ切替 -->
+  <div class="tabs">
+    <div class="on"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg></div>
+    <div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M8 3l3 5M14 3l3 5M10 11.5v5l4.5-2.5z"/></svg></div>
+    <div><svg class="i" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18c1-2.5 3-3.5 5.5-3.5s4.5 1 5.5 3.5"/></svg></div>
+  </div>
+
+  <!-- 7. 投稿グリッド（1行目＝3枚つづきパノラマ / 2〜3行目＝プレースホルダー） -->
+  <div class="grid">
+    <div class="cell"><svg class="tile" viewBox="0 0 1000 1000"><use href="#pano"/></svg></div>
+    <div class="cell"><svg class="tile" viewBox="1000 0 1000 1000"><use href="#pano"/></svg></div>
+    <div class="cell"><svg class="tile" viewBox="2000 0 1000 1000"><use href="#pano"/></svg></div>
+
+    <div class="cell ph"><div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>POST 4</div></div>
+    <div class="cell ph"><div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>POST 5</div></div>
+    <div class="cell ph"><div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>POST 6</div></div>
+    <div class="cell ph"><div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>POST 7</div></div>
+    <div class="cell ph"><div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>POST 8</div></div>
+    <div class="cell ph"><div><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>POST 9</div></div>
+  </div>
+
+  <!-- bottom nav -->
+  <div class="nav">
+    <svg class="i" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>
+    <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+    <svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M8 3l3 5M14 3l3 5M10 11.5v5l4.5-2.5z"/></svg>
+    <svg class="i" viewBox="0 0 24 24"><path d="M21 3 3 10l7 3 3 7z"/><path d="m10 13 4-4"/></svg>
+    <div class="me"><img src="assets/icon.jpg" alt=""></div>
+    <div class="home-ind"></div>
+  </div>
+
+</div>
+</body>
+</html>
