@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AI木曜会 パノラマ投稿 (3240×1080)</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #222; }
+  svg { display: block; }
+</style>
+</head>
+<body>
+<!--
+  3枚つなぎのパノラマ投稿（固定投稿 3枚分）
+  キャンバス: 3240 × 1080 → 1080 × 1080 × 3 に分割
+  継ぎ目: x = 1080, 2160（目などの細かいパーツは継ぎ目を避けて配置）
+-->
+<svg id="poster" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="3240" height="1080" viewBox="0 0 3240 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E4EE8C"/>
+      <stop offset="0.55" stop-color="#E9EDCF"/>
+      <stop offset="1" stop-color="#E7E9E5"/>
+    </linearGradient>
+
+    <!-- ざらっとしたグレイン -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0" in="n" result="dark"/>
+      <feComposite in="dark" in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <!-- 花（スカラップ型）: 中心0,0 / 半径およそ100 -->
+    <g id="flower">
+      <circle cx="0" cy="0" r="74"/>
+      <circle cx="0"   cy="-62" r="44"/>
+      <circle cx="44"  cy="-44" r="44"/>
+      <circle cx="62"  cy="0"   r="44"/>
+      <circle cx="44"  cy="44"  r="44"/>
+      <circle cx="0"   cy="62"  r="44"/>
+      <circle cx="-44" cy="44"  r="44"/>
+      <circle cx="-62" cy="0"   r="44"/>
+      <circle cx="-44" cy="-44" r="44"/>
+    </g>
+
+    <!-- 4点キラ: 中心0,0 / 半径およそ40 -->
+    <path id="sparkle" d="M0,-40 Q6,-6 40,0 Q6,6 0,40 Q-6,6 -40,0 Q-6,-6 0,-40 Z"/>
+
+    <!-- 目: 楕円＋三日月ハイライト -->
+    <g id="eyeR">
+      <ellipse cx="0" cy="0" rx="34" ry="42" fill="#1C2C24" stroke="#1C2C24"/>
+      <path d="M2,-20 A18,20 0 0 1 2,20" fill="none" stroke="#F4F4EC" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g id="eyeL">
+      <ellipse cx="0" cy="0" rx="34" ry="42" fill="#1C2C24"/>
+      <path d="M-2,-20 A18,20 0 0 0 -2,20" fill="none" stroke="#F4F4EC" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="3240" height="1080" fill="url(#bg)"/>
+
+  <!-- ===== 1枚目（左） ===== -->
+  <!-- ロゴ：左上に1つだけ -->
+  <image href="assets/logotype.png" x="90" y="92" width="600" height="149"/>
+
+  <!-- 大きいライム色の花（左下） -->
+  <g transform="translate(330 760) scale(3.1)" fill="#DAE48F">
+    <use href="#flower"/>
+  </g>
+  <g transform="translate(330 760) rotate(12) scale(1.9)" fill="#325243">
+    <use href="#sparkle"/>
+  </g>
+
+  <!-- 小さいキラ -->
+  <g transform="translate(860 420) scale(0.55)" fill="#325243"><use href="#sparkle"/></g>
+
+  <!-- ===== 2枚目（中央） ===== -->
+  <!-- 大きい四角キャラ（濃緑） -->
+  <g transform="translate(1520 780) rotate(-20)">
+    <rect x="-300" y="-300" width="600" height="600" rx="26" fill="#325243"/>
+    <use href="#eyeR" transform="translate(-170 -140) rotate(20)"/>
+    <use href="#eyeR" transform="translate(-60 -175) rotate(20)"/>
+  </g>
+
+  <!-- 三角キャラ（ライム） 左向き -->
+  <g transform="translate(1910 560)">
+    <path d="M-330,40 L250,-330 Q270,-342 270,-318 L270,380 Q270,404 250,392 Z" fill="#DAE48F"/>
+    <use href="#eyeL" transform="translate(30 -10) rotate(-12)"/>
+    <use href="#eyeL" transform="translate(140 50) rotate(-12)"/>
+    <path d="M20,-78 L52,-70" stroke="#1C2C24" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- ===== 3枚目（右） ===== -->
+  <!-- 濃緑の花（右下） -->
+  <g transform="translate(2830 810) scale(2.6)" fill="#325243">
+    <use href="#flower"/>
+  </g>
+  <g transform="translate(2830 810) rotate(-8) scale(1.5)" fill="#DAE48F">
+    <use href="#sparkle"/>
+  </g>
+
+  <!-- 小さいライムの花（右上） -->
+  <g transform="translate(2980 250) scale(0.9)" fill="#DAE48F">
+    <use href="#flower"/>
+  </g>
+  <g transform="translate(2980 250) scale(0.55)" fill="#325243">
+    <use href="#sparkle"/>
+  </g>
+
+  <!-- 小さいキラ -->
+  <g transform="translate(2470 220) scale(0.45)" fill="#325243"><use href="#sparkle"/></g>
+  <g transform="translate(1300 230) scale(0.35)" fill="#325243"><use href="#sparkle"/></g>
+
+  <!-- グレインを全面に -->
+  <rect width="3240" height="1080" fill="#000" filter="url(#grain)" opacity="0.18"/>
+</svg>
+</body>
+</html>
