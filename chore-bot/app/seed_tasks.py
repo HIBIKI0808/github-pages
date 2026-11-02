@@ -1,9 +1,15 @@
-"""初期タスクデータ（キッチン / お風呂・水回り / リビング / 玄関 / 名もなき家事）。
+"""初期タスクデータ（カテゴリ → 頻度 → タスク の階層構造）。
 
-ここを編集すれば自分たちの暮らしに合わせたリストにできる。
-- key は一意な ID。DB に既にある key は上書きしない（アプリ側の変更を保持するため）。
+このファイルが「タスクの正」です。編集してアプリを再起動（再デプロイ）すると DB に同期されます。
+- key は一意な ID（タイトルを変えても key が同じなら完了履歴は引き継がれる）。
+- ここから消したタスクは DB 上で active=False（停止）になる。
 - 曜日は 0=月, 1=火, 2=水, 3=木, 4=金, 5=土, 6=日。
-- monthly は day=日付 か nth=(第N週, 曜日) のどちらかを指定。months で実施月を絞れる（季節タスク）。
+
+スケジュールの指定方法:
+- 毎日 (daily)     … 指定不要
+- 週1〜2回 (weekly) … weekdays=[...] で曜日指定。省略時は WEEKLY_DEFAULT（日曜）
+- 月1〜数ヶ月 (monthly) … day=日付 または nth=(第N週, 曜日)（-1 は最終週）。
+                         months=[...] を付けると、その月だけ実施（2〜3ヶ月に1回のタスク用）
 """
 from __future__ import annotations
 
@@ -14,171 +20,192 @@ from .database import Task
 
 MON, TUE, WED, THU, FRI, SAT, SUN = range(7)
 
-CATEGORIES: dict[str, dict[str, str]] = {
-    "kitchen": {"label": "キッチン", "emoji": "🍳"},
-    "bath": {"label": "お風呂・水回り", "emoji": "🛁"},
-    "living": {"label": "リビング・寝室", "emoji": "🛋️"},
-    "entrance": {"label": "玄関・ベランダ", "emoji": "🚪"},
-    "nameless": {"label": "名もなき家事", "emoji": "🧺"},
-}
-
-# 週次タスクのデフォルト曜日 / 月次タスクのデフォルト日付
+# 週次タスクのデフォルト曜日 / 「週2回」タスクの曜日 / 月次タスクのデフォルト日付
 WEEKLY_DEFAULT = [SUN]
+TWICE_A_WEEK = [WED, SUN]
 MONTHLY_DEFAULT_DAY = 1
 
-
-def D(key, category, title, minutes=5, note="", carry_over=False):
-    """毎日のタスク（デフォルトでは翌日へ持ち越さない）。"""
-    return dict(key=key, category=category, title=title, frequency="daily",
-                minutes=minutes, note=note, carry_over=carry_over)
+EVERY_2_MONTHS = [1, 3, 5, 7, 9, 11]
+EVERY_3_MONTHS = [3, 6, 9, 12]
 
 
-def W(key, category, title, minutes=10, note="", weekdays=None, carry_over=True):
-    """週次タスク。weekdays 未指定なら WEEKLY_DEFAULT（日曜）。"""
-    return dict(key=key, category=category, title=title, frequency="weekly",
-                weekdays=list(weekdays or WEEKLY_DEFAULT), minutes=minutes, note=note,
-                carry_over=carry_over)
+def T(key: str, title: str, minutes: int = 5, note: str = "", **schedule) -> dict:
+    """タスク 1 件。schedule には weekdays / day / nth / months / carry_over を指定できる。"""
+    return dict(key=key, title=title, minutes=minutes, note=note, **schedule)
 
 
-def M(key, category, title, minutes=20, note="", day=None, nth=None, months=None, carry_over=True):
-    """月次・季節タスク。day も nth も未指定なら毎月 MONTHLY_DEFAULT_DAY 日。"""
-    nth_week, weekday = nth if nth else (None, None)
-    if day is None and nth is None:
-        day = MONTHLY_DEFAULT_DAY
-    return dict(key=key, category=category, title=title, frequency="monthly",
-                day_of_month=day, nth_week=nth_week, weekday=weekday,
-                months=list(months) if months else None, minutes=minutes, note=note,
-                carry_over=carry_over)
+# =====================================================================
+# 【初期タスクリスト】カテゴリ → 頻度（daily / weekly / monthly）→ タスク
+# =====================================================================
+TASK_TREE: dict[str, dict] = {
+    # -----------------------------------------------------------------
+    "kitchen": {
+        "label": "キッチン",
+        "subtitle": "水回り・家電の細部",
+        "emoji": "🍳",
+        "daily": [
+            T("k_drain_trash", "排水口のゴミ受けのゴミ捨て＆簡単なスポンジ洗い", 3),
+            T("k_sink_wipe", "シンク全体の水分拭き取り（水垢・ピンク汚れ防止）", 2),
+            T("k_stove_wipe", "IH天板（またはガス台）の油跳ねの拭き掃除", 3, "温かいうちに拭くと落ちやすい"),
+            T("k_dishwasher_filter", "食洗機のフィルターのゴミ取り", 2),
+            T("k_microwave_check", "電子レンジの庫内の飛び散りチェック＆拭き掃除", 2),
+        ],
+        "weekly": [
+            T("k_grill", "魚焼きグリル（受け皿・網）の分解洗浄", 15),
+            T("k_gotoku", "五徳やバーナーキャップのつけ置き・焦げ落とし", 20, "重曹＋お湯でつけ置き"),
+            T("k_fridge_handle", "冷蔵庫のポケット・ドアの取っ手・パッチンの手垢拭き", 5),
+            T("k_toaster_tray", "トースターのパンくずトレーの掃除", 3),
+            T("k_board_sponge", "まな板・スポンジの除菌・漂白", 5, "酸素系漂白剤 or 熱湯", weekdays=TWICE_A_WEEK),
+            T("k_floor", "キッチンの床（足元）の油跳ね・ホコリの拭き掃除", 10),
+        ],
+        "monthly": [
+            T("k_range_hood", "レンジフード・換気扇のフィルター交換（またはファン・本体掃除）", 30, day=1),
+            T("k_fridge_inspect", "冷蔵庫の中身の総点検・賞味期限切れ廃棄＆棚板拭き掃除", 30, day=10),
+            T("k_dishwasher_clean", "食洗機自体の庫内洗浄", 10, "食洗機用クリーナーを入れて空運転", day=1),
+            T("k_rice_cooker", "炊飯器の蒸気口・内蓋の丸洗い", 10, day=20),
+            T("k_knife", "包丁やキッチンバサミの研ぎ・点検", 15, day=20, months=EVERY_3_MONTHS),
+        ],
+    },
+    # -----------------------------------------------------------------
+    "bath": {
+        "label": "お風呂・洗面所・トイレ",
+        "subtitle": "水回りの細かいメンテ",
+        "emoji": "🛁",
+        "daily": [
+            T("b_floor_squeegee", "お風呂の床の水切り（スクイージーや換気）", 3, "カビ予防の最強習慣"),
+            T("b_basin_hair", "洗面ボウルの髪の毛取り＆水滴拭き取り", 2),
+            T("b_toilet_brush", "トイレの便器内のササッとブラシがけ", 2),
+        ],
+        "weekly": [
+            T("b_bath_drain", "お風呂の排水口の髪の毛ポイ捨て＆パーツ洗浄", 10, weekdays=TWICE_A_WEEK),
+            T("b_mirror_scale", "浴室の鏡の水垢・ウロコ取り", 10, "クエン酸パック→スポンジ"),
+            T("b_hair_catcher", "洗面所のヘアキャッチャー（ゴミ受け）の掃除", 3),
+            T("b_toothbrush_stand", "歯ブラシ立て・コップ置き場の底のぬめり取り・乾燥", 3),
+            T("b_toilet_rim", "トイレの便器のフチ裏・便座裏・外側の拭き掃除", 10, weekdays=TWICE_A_WEEK),
+            T("b_toilet_floor", "トイレの床・壁（下部）の尿飛び・ホコリ拭き", 5),
+        ],
+        "monthly": [
+            T("b_reheat_pipe", "お風呂の浴槽の循環アダプター（追い焚き配管）内部洗浄", 20, "風呂釜洗浄剤を使用", day=5),
+            T("b_dryer_fan", "浴室乾燥機・換気扇のフィルターのホコリ吸い取り", 10, day=5),
+            T("b_mold_smoke", "お風呂の防カビ燻煙剤を焚く", 5, "2ヶ月に1回が目安", day=15, months=EVERY_2_MONTHS),
+            T("b_door_packing", "お風呂のドアのパッキン・下部のカビ取り", 15, "塩素系カビ取り剤＋ラップパック", day=15),
+            T("b_basin_trap", "洗面所の排水トラップの分解洗浄", 15, day=25),
+            T("b_toilet_tank", "トイレのタンクの水受け・ノズルそうじ・換気扇掃除", 20, day=25),
+        ],
+    },
+    # -----------------------------------------------------------------
+    "living": {
+        "label": "リビング・居室",
+        "subtitle": "隠れホコリ・細部",
+        "emoji": "🛋️",
+        "daily": [
+            T("l_cushion_reset", "クッション・ソファの形を整える（リセット）", 1),
+            T("l_put_back", "テーブルの上・床に落ちているものの定位置戻し", 5),
+        ],
+        "weekly": [
+            T("l_screen", "テレビ画面・パソコン画面のホコリ払い・手垢拭き", 5, "画面は乾拭き→専用クリーナー"),
+            T("l_remote", "リモコン・スマホの除菌シート拭き", 3),
+            T("l_rug_vacuum", "カーペット・ラグの念入り掃除機がけ", 15, "縦横2方向にゆっくり"),
+            T("l_baseboard", "巾木（床と壁の境目）に溜まったホコリの拭き取り", 10),
+        ],
+        "monthly": [
+            T("l_aircon_filter", "エアコンのフィルターのホコリ吸い取り＆水洗い", 20, "冷暖房シーズンは2週に1回が理想", day=15),
+            T("l_aircon_louver", "エアコンのルーバー内部のカビ・ホコリ拭き", 15, day=15, months=EVERY_2_MONTHS),
+            T("l_light_shade", "照明器具の傘（シェード）のホコリ拭き", 10, day=10),
+            T("l_curtain_rail", "カーテンレールの上のホコリ取り", 5, day=10),
+            T("l_switch", "ドアノブ・スイッチプレートのアルコール除菌拭き", 10, day=1),
+            T("l_sofa_gap", "ソファの隙間のゴミ吸い取り", 5, day=20),
+            T("l_window", "窓ガラス・サッシのレール掃除・水拭き", 40, nth=(2, SAT), months=EVERY_3_MONTHS),
+            T("l_screen_door", "網戸のホコリ落とし・水拭き", 20, nth=(2, SAT), months=EVERY_3_MONTHS),
+        ],
+    },
+    # -----------------------------------------------------------------
+    "entrance": {
+        "label": "玄関・廊下・その他",
+        "subtitle": "名もなき家事",
+        "emoji": "🚪",
+        "daily": [],
+        "weekly": [
+            T("e_tataki", "玄関のたたきの砂埃掃き・水拭き", 5),
+            # ゴミの日に合わせて曜日を変更してください
+            T("e_trash_collect", "各部屋のゴミ箱のゴミ集め・ゴミ袋セット", 5, "ゴミの日の前日・当日朝に",
+              weekdays=TWICE_A_WEEK, carry_over=False),
+        ],
+        "monthly": [
+            T("e_shoebox", "下駄箱の靴を全部出して中の砂埃拭き＆換気", 20, nth=(1, SUN), months=EVERY_3_MONTHS),
+            T("e_umbrella_stand", "傘立ての底の汚れ・水たまりの掃除", 5, day=1),
+            T("e_router_dust", "分電盤やWi-Fiルーターのホコリ取り", 5, "ホコリはトラッキング火災の原因に",
+              day=20, months=EVERY_2_MONTHS),
+            T("e_mail_sort", "郵便物の仕分け・不要なDM処分", 10, day=25),
+            # 古紙・資源ゴミの収集日に合わせて変更してください
+            T("e_cardboard", "段ボール・古紙の紐縛り・まとめ・リサイクル出し", 10, "資源ゴミの収集日に合わせて変更",
+              nth=(2, SUN)),
+            T("e_bottle_refill", "シャンプー等のボトル底のヌメリ取り＆詰め替え", 10, day=10),
+            T("e_stock_check", "トイレットペーパー・洗剤等のストック在庫確認・補充", 10, day=25),
+        ],
+    },
+}
+
+FREQUENCIES = ("daily", "weekly", "monthly")
+FREQUENCY_LABELS = {"daily": "毎日", "weekly": "週1〜2回", "monthly": "月1〜数ヶ月"}
+
+# 表示用のカテゴリ情報（順番は TASK_TREE の定義順）
+CATEGORIES: dict[str, dict[str, str]] = {
+    key: {"label": c["label"], "subtitle": c["subtitle"], "emoji": c["emoji"]}
+    for key, c in TASK_TREE.items()
+}
 
 
-INITIAL_TASKS: list[dict] = [
-    # ================= 毎日 =================
-    # --- キッチン ---
-    D("k_dishes", "kitchen", "食器を洗う（or 食洗機をセット＆片付け）", 15),
-    D("k_sink_dry", "kitchen", "シンクと蛇口の水気を拭き上げる", 2, "水垢予防。マイクロファイバーで一拭き"),
-    D("k_drain_trash", "kitchen", "排水口のゴミ受けのゴミを捨てる", 2),
-    D("k_stove_wipe", "kitchen", "コンロ周り・壁の油はねを拭く", 3, "温かいうちならアルコールで一発"),
-    D("k_counter", "kitchen", "調理台・ダイニングテーブルを拭く", 3),
-    D("k_sponge", "kitchen", "スポンジ・布巾を除菌して干す", 2, "熱湯 or 酸素系漂白剤"),
-    D("k_garbage_bag", "kitchen", "生ゴミをまとめて口を縛る", 2),
-    D("k_rice", "kitchen", "お米を研いで炊飯予約", 5),
-    # --- お風呂・水回り ---
-    D("b_tub", "bath", "浴槽を洗う", 5),
-    D("b_squeegee", "bath", "入浴後に壁・床・鏡の水気をスクイージーで切る", 3, "カビ・水垢予防の最強習慣"),
-    D("b_hair", "bath", "浴室の排水口の髪の毛を取る", 1),
-    D("b_vent", "bath", "浴室の換気扇を回しっぱなしにする", 1),
-    D("b_basin", "bath", "洗面ボウルと蛇口を拭く", 2),
-    D("b_mirror", "bath", "洗面所の鏡の水はね・歯磨き粉を拭く", 1),
-    D("b_toilet_bowl", "bath", "トイレの便器内をブラシでさっと掃除", 2),
-    D("b_toilet_seat", "bath", "便座・便座裏・床をシートで拭く", 2),
-    D("b_towel", "bath", "バスマット・フェイスタオルを交換／干す", 2),
-    # --- リビング・寝室 ---
-    D("l_reset", "living", "出しっぱなしの物を定位置に戻す（リセット）", 5),
-    D("l_table", "living", "ローテーブル・カウンターの上を片付けて拭く", 3),
-    D("l_floor", "living", "ロボット掃除機 or フロアワイパーをかける", 5),
-    D("l_air", "living", "窓を開けて換気（5〜10分）", 1),
-    D("l_cushion", "living", "クッション・ブランケットを整える", 1),
-    D("l_bed", "living", "ベッドメイク（布団を整える）", 2),
-    # --- 玄関 ---
-    D("e_shoes", "entrance", "脱ぎっぱなしの靴を揃える／しまう", 1),
-    D("e_mail", "entrance", "郵便物チェック・チラシ即処分", 2),
-    # --- 名もなき家事 ---
-    D("n_laundry_wash", "nameless", "洗濯機を回す", 2),
-    D("n_laundry_dry", "nameless", "洗濯物を干す（or 乾燥機）", 10),
-    D("n_laundry_fold", "nameless", "洗濯物を取り込んでたたんでしまう", 10),
-    D("n_trash_collect", "nameless", "家中のゴミ箱のゴミをまとめる", 3),
-    D("n_tissue", "nameless", "トイレットペーパー・ティッシュの残量チェック＆補充", 1),
-    D("n_refill", "nameless", "なくなりかけの洗剤・シャンプーを詰め替える", 2),
-    D("n_dishes_put", "nameless", "水切りカゴの食器を棚に戻す", 3),
-    D("n_tomorrow", "nameless", "明日の予定・ゴミの日を確認", 1),
-
-    # ================= 週1回（デフォルト日曜） =================
-    # --- キッチン ---
-    W("k_fridge_check", "kitchen", "冷蔵庫の中身チェック・期限切れ処分", 10, "買い出し前にやると無駄買いが減る"),
-    W("k_microwave", "kitchen", "電子レンジの庫内を拭く", 5, "水を入れた耐熱容器を2分チンしてから拭く"),
-    W("k_gotoku", "kitchen", "コンロの五徳・受け皿を洗う", 15),
-    W("k_sink_scrub", "kitchen", "シンク全体をクレンザーで磨く", 10),
-    W("k_drain_bleach", "kitchen", "排水口パーツ・三角コーナーを漂白", 5),
-    W("k_fridge_door", "kitchen", "冷蔵庫・家電の扉と取っ手を拭く", 5),
-    W("k_trashcan", "kitchen", "キッチンのゴミ箱本体を拭く", 5),
-    W("k_towels", "kitchen", "キッチンマット・タオルを洗濯", 2),
-    # --- お風呂・水回り ---
-    W("b_floor_brush", "bath", "浴室の床・壁・ドアのパッキンをブラシ洗い", 15),
-    W("b_drain_parts", "bath", "浴室排水口のパーツを分解して洗う", 10),
-    W("b_bottles", "bath", "シャンプーボトル・ラックの底のヌメリ取り", 5),
-    W("b_basin_drain", "bath", "洗面台の排水口・オーバーフロー穴を掃除", 5),
-    W("b_toilet_full", "bath", "トイレの床・壁・タンク周りを全面拭き", 10),
-    W("b_toilet_mat", "bath", "トイレマット・タオル・スリッパを洗濯", 2),
-    W("b_lint", "bath", "洗濯機のゴミ取りネット・糸くずフィルター掃除", 3),
-    # --- リビング・寝室 ---
-    W("l_vacuum", "living", "家全体に掃除機（家具の下・部屋の隅まで）", 20),
-    W("l_dust", "living", "棚・テレビ・照明・窓枠のホコリ取り", 10, "上から下へ"),
-    W("l_switch", "living", "リモコン・スイッチ・ドアノブを除菌", 5),
-    W("l_plants", "living", "観葉植物の水やり・葉のホコリ拭き", 5),
-    W("l_sheets", "living", "シーツ・枕カバーを交換して洗濯", 15),
-    # --- 玄関・ベランダ ---
-    W("e_tataki", "entrance", "玄関のたたきを掃く・水拭き", 5),
-    W("e_shoebox_air", "entrance", "靴箱の扉を開けて換気", 1),
-    W("e_mat", "entrance", "玄関マットをはたく", 2),
-    # --- 名もなき家事 ---
-    W("n_stock", "nameless", "日用品の在庫チェック・買い物リスト作成", 10),
-    W("n_menu", "nameless", "1週間の献立をざっくり決める／作り置き", 30),
-    W("n_paper", "nameless", "書類・レシートを整理", 10),
-    # ゴミ出し（※自治体の収集日に合わせて曜日を変更してください）
-    W("n_trash_burn", "nameless", "🔥 燃えるゴミを出す", 3, "自治体の収集日に合わせて曜日を変更", weekdays=[MON, THU], carry_over=False),
-    W("n_trash_plastic", "nameless", "♻️ プラスチックゴミを出す", 3, weekdays=[WED], carry_over=False),
-    W("n_trash_recycle", "nameless", "🥫 缶・ビン・ペットボトルを出す", 3, weekdays=[FRI], carry_over=False),
-
-    # ================= 月1回・季節 =================
-    # --- キッチン ---
-    M("k_fan_filter", "kitchen", "換気扇（レンジフード）のフィルター交換・洗浄", 30, day=1),
-    M("k_fridge_shelf", "kitchen", "冷蔵庫の棚を全部出して拭く", 30, nth=(2, SAT)),
-    M("k_dishwasher", "kitchen", "食洗機のフィルター・庫内を洗浄", 15, day=1),
-    M("k_kettle", "kitchen", "電気ケトル・ポットをクエン酸洗浄", 5, day=15),
-    M("k_cutting_board", "kitchen", "まな板・保存容器・水筒を漂白", 10, day=15),
-    M("k_rice_cooker", "kitchen", "炊飯器の内蓋・蒸気口を掃除", 10, day=15),
-    M("k_water_filter", "kitchen", "浄水器カートリッジの交換時期を確認", 2, day=1, months=[1, 4, 7, 10]),
-    # --- お風呂・水回り ---
-    M("b_mirror_scale", "bath", "浴室の鏡のウロコ（水垢）取り", 15, "クエン酸パック", nth=(1, SUN)),
-    M("b_ceiling", "bath", "浴室の天井・換気扇カバーを拭く", 15, "天井はフロアワイパー＋アルコール", nth=(1, SUN)),
-    M("b_washer_tub", "bath", "洗濯槽クリーナーで洗濯槽を掃除", 10, day=1),
-    M("b_mold_smoke", "bath", "浴室の防カビくん煙剤を焚く", 5, day=1, months=[1, 3, 5, 7, 9, 11]),
-    M("b_toilet_tank", "bath", "トイレの尿石取り・タンク内・換気扇掃除", 20, nth=(3, SUN)),
-    M("b_basin_storage", "bath", "洗面所の収納を整理・期限切れコスメ処分", 15, nth=(3, SUN)),
-    M("b_pipe", "bath", "排水管にパイプクリーナーを流す", 5, day=15),
-    # --- リビング・寝室 ---
-    M("l_aircon", "living", "エアコンのフィルター掃除", 20, day=15),
-    M("l_light", "living", "照明カバー・シーリングライトのホコリ取り", 10, nth=(2, SUN)),
-    M("l_baseboard", "living", "巾木・ドアの上・家具の裏のホコリ取り", 15, nth=(2, SUN)),
-    M("l_futon", "living", "布団を干す／布団乾燥機をかける", 10, nth=(1, SAT)),
-    M("l_window", "living", "窓ガラス・網戸・サッシのレールを掃除", 40, nth=(4, SAT), months=[3, 6, 9, 12]),
-    M("l_curtain", "living", "カーテンを洗濯", 30, nth=(4, SAT), months=[4, 10]),
-    # --- 玄関・ベランダ ---
-    M("e_door", "entrance", "玄関ドア・ドアノブ・インターホンを拭く", 10, nth=(1, SAT)),
-    M("e_shoebox", "entrance", "靴箱の中を出して拭く・履かない靴を処分", 20, nth=(1, SAT), months=[3, 6, 9, 12]),
-    M("e_shoe_care", "entrance", "靴の手入れ（汚れ落とし・防水スプレー）", 15, nth=(1, SAT)),
-    M("e_balcony", "entrance", "ベランダの掃き掃除・排水溝の詰まりチェック", 15, nth=(-1, SUN)),
-    # --- 名もなき家事・季節 ---
-    M("n_bills", "nameless", "公共料金・サブスク・家計の確認", 15, day=25),
-    M("n_dryer_filter", "nameless", "乾燥機・除湿機・空気清浄機のフィルター掃除", 10, day=15),
-    M("n_emergency", "nameless", "防災グッズ・非常食・水の期限チェック", 15, day=1, months=[3, 9]),
-    M("n_smoke_alarm", "nameless", "火災報知器のテスト・電池チェック", 5, day=1, months=[1, 7]),
-    M("n_koromogae_summer", "nameless", "衣替え（春夏物を出す）・扇風機を出す", 60, nth=(2, SAT), months=[5]),
-    M("n_koromogae_winter", "nameless", "衣替え（秋冬物を出す）・暖房器具を出す", 60, nth=(2, SAT), months=[10]),
-    M("n_humidifier", "nameless", "加湿器のタンク・フィルターをクエン酸洗浄", 15, day=15, months=[11, 12, 1, 2, 3]),
-    M("n_aircon_pro", "nameless", "エアコン試運転・本格シーズン前点検", 15, day=1, months=[5, 11]),
-    M("n_osouji", "nameless", "大掃除の分担を決める", 15, day=1, months=[12]),
-]
+def _to_row(category: str, frequency: str, item: dict) -> dict:
+    """階層データの 1 件を Task テーブルの列に変換する。"""
+    row = dict(
+        key=item["key"], title=item["title"], category=category, frequency=frequency,
+        minutes=item.get("minutes", 5), note=item.get("note", ""),
+        carry_over=item.get("carry_over", frequency != "daily"),
+        weekdays=None, day_of_month=None, nth_week=None, weekday=None, months=None,
+    )
+    if frequency == "weekly":
+        row["weekdays"] = sorted(item.get("weekdays") or WEEKLY_DEFAULT)
+    elif frequency == "monthly":
+        if item.get("nth"):
+            row["nth_week"], row["weekday"] = item["nth"]
+        else:
+            row["day_of_month"] = item.get("day", MONTHLY_DEFAULT_DAY)
+        row["months"] = sorted(item["months"]) if item.get("months") else None
+    return row
 
 
-def seed_tasks(db: Session) -> int:
-    """未登録の初期タスクを追加する。追加件数を返す。"""
-    existing = set(db.scalars(select(Task.key)))
-    added = 0
+def flatten_tasks(tree: dict[str, dict] = TASK_TREE) -> list[dict]:
+    rows = []
+    for category, cat in tree.items():
+        for frequency in FREQUENCIES:
+            for item in cat.get(frequency, []):
+                rows.append(_to_row(category, frequency, item))
+    return rows
+
+
+INITIAL_TASKS: list[dict] = flatten_tasks()
+
+
+def seed_tasks(db: Session) -> dict[str, int]:
+    """TASK_TREE の内容を DB に同期する（追加・更新・停止）。"""
+    existing = {t.key: t for t in db.scalars(select(Task))}
+    stats = {"added": 0, "updated": 0, "deactivated": 0}
     for order, data in enumerate(INITIAL_TASKS):
-        if data["key"] in existing:
+        task = existing.pop(data["key"], None)
+        if task is None:
+            db.add(Task(sort_order=order, active=True, **data))
+            stats["added"] += 1
             continue
-        db.add(Task(sort_order=order, **data))
-        added += 1
+        changed = False
+        for field, value in {**data, "sort_order": order, "active": True}.items():
+            if getattr(task, field) != value:
+                setattr(task, field, value)
+                changed = True
+        stats["updated"] += changed
+    for task in existing.values():  # リストから消えたタスクは停止
+        if task.active:
+            task.active = False
+            stats["deactivated"] += 1
     db.commit()
-    return added
+    return stats

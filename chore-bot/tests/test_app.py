@@ -21,21 +21,25 @@ def sign(body: bytes) -> str:
     return base64.b64encode(hmac.new(b"test-secret", body, hashlib.sha256).digest()).decode()
 
 
-def test_seed_is_comprehensive_and_idempotent(db):
+def test_seed_sync_is_idempotent_and_deactivates_removed(db):
     from app.seed_tasks import seed_tasks
     assert db.query(Task).count() == len(INITIAL_TASKS)
-    assert seed_tasks(db) == 0
-    assert len({t["key"] for t in INITIAL_TASKS}) == len(INITIAL_TASKS)
-    cats = {t["category"] for t in INITIAL_TASKS}
-    assert cats == {"kitchen", "bath", "living", "entrance", "nameless"}
+    assert seed_tasks(db) == {"added": 0, "updated": 0, "deactivated": 0}
+    db.add(Task(key="old_task", title="旧タスク", category="kitchen", frequency="daily"))
+    db.query(Task).filter_by(key="k_floor").one().title = "編集前"
+    db.commit()
+    assert seed_tasks(db) == {"added": 0, "updated": 1, "deactivated": 1}
+    assert db.query(Task).filter_by(key="old_task").one().active is False
+    assert {t["category"] for t in INITIAL_TASKS} == {"kitchen", "bath", "living", "entrance"}
 
 
 def test_board_includes_daily_weekly_monthly(db):
     board = service.get_board(db, SUNDAY)
     freqs = {i.task.frequency for i in board.today}
     assert freqs == {"daily", "weekly", "monthly"}
-    monday = service.get_board(db, MONDAY)
-    assert "n_trash_burn" in {i.task.key for i in monday.today}
+    assert {i.task.frequency for i in service.get_board(db, MONDAY).today} == {"daily"}
+    wednesday = service.get_board(db, MONDAY + timedelta(days=2))
+    assert "k_board_sponge" in {i.task.key for i in wednesday.today}  # 週2回（水・日）
 
 
 def test_carry_over_and_done(db):

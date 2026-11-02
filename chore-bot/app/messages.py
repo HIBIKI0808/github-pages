@@ -75,8 +75,8 @@ def _category_bubbles(instances: list[TaskInstance], title_prefix: str = "") -> 
                     "type": "box", "layout": "vertical", "backgroundColor": "#F4F8F5",
                     "contents": [
                         {"type": "text", "text": f"{title_prefix}{meta['emoji']} {meta['label']}{suffix}",
-                         "weight": "bold", "size": "md"},
-                        {"type": "text", "text": f"残り {remaining} / {len(items)} 件　タップで完了",
+                         "weight": "bold", "size": "md", "wrap": True},
+                        {"type": "text", "text": f"{meta.get('subtitle', '')}｜残り {remaining}/{len(items)}件・タップで完了",
                          "size": "xxs", "color": COLOR_SUB},
                     ],
                 },
@@ -92,9 +92,9 @@ def _summary_bubble(board: Board, heading: str) -> dict:
     counts = {f: sum(1 for i in board.today if i.task.frequency == f) for f in ("daily", "weekly", "monthly")}
     highlights = []
     if counts["weekly"]:
-        highlights.append(f"📅 週次タスク {counts['weekly']}件")
+        highlights.append(f"📅 週1〜2回のタスク {counts['weekly']}件")
     if counts["monthly"]:
-        highlights.append(f"🗓️ 月次・季節タスク {counts['monthly']}件")
+        highlights.append(f"🗓️ 月1〜数ヶ月のメンテ {counts['monthly']}件")
     if board.carry_over:
         highlights.append(f"⏳ 持ち越し {len(board.carry_over)}件")
     contents = [

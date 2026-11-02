@@ -10,10 +10,10 @@ from sqlalchemy.orm import Session
 from .config import settings
 from .database import Task, TaskInstance
 from .schedule import is_due
-from .seed_tasks import CATEGORIES
+from .seed_tasks import CATEGORIES, FREQUENCY_LABELS
 
 FREQ_ORDER = {"daily": 0, "weekly": 1, "monthly": 2}
-FREQ_LABEL = {"daily": "毎日", "weekly": "週次", "monthly": "月次"}
+FREQ_LABEL = FREQUENCY_LABELS
 # 持ち越し表示をさかのぼる日数
 CARRY_OVER_DAYS = {"daily": 1, "weekly": 6, "monthly": 30}
 
@@ -141,6 +141,7 @@ def serialize_instance(inst: TaskInstance) -> dict:
         "category": t.category,
         "category_label": cat["label"],
         "category_emoji": cat["emoji"],
+        "category_subtitle": cat.get("subtitle", ""),
         "frequency": t.frequency,
         "frequency_label": FREQ_LABEL.get(t.frequency, t.frequency),
         "minutes": t.minutes,
@@ -161,4 +162,5 @@ def serialize_board(board: Board) -> dict:
         "today": [serialize_instance(i) for i in board.today],
         "carry_over": [serialize_instance(i) for i in board.carry_over],
         "categories": CATEGORIES,
+        "frequency_labels": FREQUENCY_LABELS,
     }
