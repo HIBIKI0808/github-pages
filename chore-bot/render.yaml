@@ -1,0 +1,36 @@
+# Render Blueprint
+# Render の Blueprint はリポジトリ直下の render.yaml を読むため、
+# このリポジトリをそのまま使う場合はこのファイルをルートにコピーするか、
+# ダッシュボードから手動で Web Service を作成（Root Directory = chore-bot）してください。
+services:
+  - type: web
+    name: chore-bot
+    runtime: python
+    plan: free
+    rootDir: chore-bot
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: TIMEZONE
+        value: Asia/Tokyo
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false
+      - key: DATABASE_URL        # Supabase / Neon の Postgres 接続文字列
+        sync: false
+      - key: BASE_URL            # 例: https://chore-bot-xxxx.onrender.com
+        sync: false
+      - key: CRON_SECRET
+        generateValue: true
+      - key: DASHBOARD_KEY
+        generateValue: true
+      - key: LIFF_ID
+        sync: false
+      - key: LINE_LOGIN_CHANNEL_ID
+        sync: false
+      - key: ALLOWED_USER_IDS
+        sync: false

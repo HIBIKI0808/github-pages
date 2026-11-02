@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>おうち家事チェック</title>
+  <style>
+    :root {
+      --bg: #f5f7f6; --card: #fff; --text: #1d1d1f; --sub: #8a8f8c; --line: #e6e9e7;
+      --main: #06c755; --main-soft: #e6f8ee; --weekly: #1e88e5; --monthly: #e53935;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #121413; --card: #1d201f; --text: #ecefed; --sub: #8f9692; --line: #2c302e; --main-soft: #173324; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif; }
+    header { position: sticky; top: 0; z-index: 2; background: var(--card); border-bottom: 1px solid var(--line);
+      padding: 12px 16px calc(12px) ; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .nav button { border: 0; background: var(--bg); color: var(--text); border-radius: 999px; width: 36px; height: 36px; font-size: 18px; }
+    .date { font-weight: 700; font-size: 18px; text-align: center; }
+    .date small { display: block; font-weight: 400; font-size: 12px; color: var(--sub); }
+    .progress { margin-top: 10px; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+    .progress > div { height: 100%; background: var(--main); width: 0; transition: width .3s; }
+    .stats { display: flex; justify-content: space-between; font-size: 13px; color: var(--sub); margin-top: 6px; }
+    .stats b { color: var(--text); font-size: 15px; }
+    .filters { display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; }
+    .filters button { flex: 0 0 auto; border: 1px solid var(--line); background: var(--card); color: var(--text);
+      padding: 6px 12px; border-radius: 999px; font-size: 13px; }
+    .filters button.on { background: var(--main); border-color: var(--main); color: #fff; }
+    main { padding: 12px 16px 48px; max-width: 640px; margin: 0 auto; }
+    section { background: var(--card); border-radius: 14px; margin-bottom: 12px; overflow: hidden; }
+    section h2 { margin: 0; padding: 12px 14px; font-size: 15px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    section h2 span { color: var(--sub); font-weight: 400; font-size: 13px; }
+    label.task { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-bottom: 1px solid var(--line); cursor: pointer; }
+    label.task:last-child { border-bottom: 0; }
+    label.task input { appearance: none; flex: 0 0 24px; height: 24px; border: 2px solid var(--sub); border-radius: 7px; margin: 0; display: grid; place-content: center; }
+    label.task input:checked { background: var(--main); border-color: var(--main); }
+    label.task input:checked::after { content: "✓"; color: #fff; font-weight: 700; font-size: 15px; }
+    .t-body { flex: 1; min-width: 0; }
+    .t-title { font-size: 15px; line-height: 1.4; }
+    .done .t-title { color: var(--sub); text-decoration: line-through; }
+    .t-meta { font-size: 12px; color: var(--sub); margin-top: 2px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .badge { border-radius: 4px; padding: 0 5px; font-size: 11px; color: #fff; background: var(--sub); }
+    .badge.weekly { background: var(--weekly); } .badge.monthly { background: var(--monthly); }
+    .badge.carry { background: #f9a825; }
+    .empty { text-align: center; padding: 40px 0; color: var(--sub); }
+    .msg { text-align: center; padding: 24px; color: var(--sub); }
+    .name { margin-top: 8px; font-size: 12px; color: var(--sub); }
+    .name input { border: 1px solid var(--line); background: var(--bg); color: var(--text); border-radius: 6px; padding: 4px 8px; width: 9em; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <button id="prev" aria-label="前の日">‹</button>
+    <div class="date" id="date">読み込み中…<small></small></div>
+    <button id="next" aria-label="次の日">›</button>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+  <div class="stats"><span>残り <b id="remaining">-</b> 件（約<span id="minutes">-</span>分）</span><span>完了 <b id="done">-</b>/<span id="total">-</span></span></div>
+  <div class="filters" id="filters">
+    <button data-f="todo" class="on">未完了</button>
+    <button data-f="all">すべて</button>
+    <button data-f="daily">毎日</button>
+    <button data-f="weekly">週次</button>
+    <button data-f="monthly">月次</button>
+  </div>
+  <div class="name" id="nameBox" hidden>あなたの名前: <input id="nameInput" placeholder="例: たろう" maxlength="20"></div>
+</header>
+<main id="list"><div class="msg">読み込み中…</div></main>
+
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+const LIFF_ID = "__LIFF_ID__";
+const WEEK = "日月火水木金土";
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
+let idToken = null;
+let dashboardKey = new URLSearchParams(location.search).get("key") || store.get("dashboardKey") || "";
+if (dashboardKey) store.set("dashboardKey", dashboardKey);
+let filter = store.get("filter") || "todo";
+let current = new Date();
+let board = null;
+
+function iso(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function headers() {
+  const h = { "Content-Type": "application/json" };
+  if (idToken) h["Authorization"] = "Bearer " + idToken;
+  if (dashboardKey) h["X-Dashboard-Key"] = dashboardKey;
+  const name = store.get("actorName");
+  if (name) h["X-Actor-Name"] = encodeURIComponent(name);
+  return h;
+}
+async function api(path, opts = {}) {
+  const res = await fetch(path, { ...opts, headers: headers() });
+  if (!res.ok) throw new Error(res.status === 401 ? "認証エラー: LINEのメッセージ内のリンクから開き直してください" : "通信エラー (" + res.status + ")");
+  return res.json();
+}
+
+async function load() {
+  try {
+    board = await api("/api/board?target_date=" + iso(current));
+    render();
+  } catch (e) {
+    document.getElementById("list").innerHTML = `<div class="msg">${e.message}</div>`;
+  }
+}
+
+function render() {
+  const d = new Date(board.date + "T00:00:00");
+  const isToday = board.date === iso(new Date());
+  document.getElementById("date").innerHTML =
+    `${d.getMonth() + 1}/${d.getDate()}(${WEEK[d.getDay()]})<small>${isToday ? "今日" : ""}</small>`;
+  const pct = board.total ? Math.round(board.done * 100 / board.total) : 100;
+  document.getElementById("bar").style.width = pct + "%";
+  document.getElementById("remaining").textContent = board.remaining;
+  document.getElementById("minutes").textContent = board.remaining_minutes;
+  document.getElementById("done").textContent = board.done;
+  document.getElementById("total").textContent = board.total;
+  document.querySelectorAll("#filters button").forEach(b => b.classList.toggle("on", b.dataset.f === filter));
+
+  const items = [
+    ...board.today.map(t => ({ ...t, carry: false })),
+    ...board.carry_over.map(t => ({ ...t, carry: true })),
+  ].filter(t => filter === "all" ? true : filter === "todo" ? !t.done : t.frequency === filter);
+
+  const list = document.getElementById("list");
+  if (!items.length) {
+    list.innerHTML = `<div class="empty">${filter === "todo" && board.total ? "🎉 ぜんぶ完了！おつかれさま" : "タスクはありません"}</div>`;
+    return;
+  }
+  const groups = {};
+  for (const t of items) (groups[t.category] ||= []).push(t);
+  list.innerHTML = "";
+  for (const [cat, meta] of Object.entries(board.categories)) {
+    const ts = groups[cat];
+    if (!ts) continue;
+    const sec = document.createElement("section");
+    const left = ts.filter(t => !t.done).length;
+    sec.innerHTML = `<h2>${meta.emoji} ${meta.label}<span>残り ${left}/${ts.length}</span></h2>`;
+    for (const t of ts) {
+      const row = document.createElement("label");
+      row.className = "task" + (t.done ? " done" : "");
+      const badges = [
+        t.frequency !== "daily" ? `<span class="badge ${t.frequency}">${t.frequency_label}</span>` : "",
+        t.carry ? `<span class="badge carry">持ち越し ${t.due_date.slice(5).replace("-", "/")}</span>` : "",
+      ].join("");
+      const by = t.done && t.done_by ? `・✔ ${escapeHtml(t.done_by)}` : "";
+      row.innerHTML = `<input type="checkbox" ${t.done ? "checked" : ""}>
+        <div class="t-body"><div class="t-title">${escapeHtml(t.title)}</div>
+        <div class="t-meta">${badges}<span>約${t.minutes}分${by}</span>${t.note ? `<span>💡${escapeHtml(t.note)}</span>` : ""}</div></div>`;
+      row.querySelector("input").addEventListener("change", e => toggle(t, e.target.checked));
+      sec.appendChild(row);
+    }
+    list.appendChild(sec);
+  }
+}
+
+async function toggle(t, done) {
+  try {
+    await api("/api/instances/" + t.id, { method: "POST", body: JSON.stringify({ done }) });
+  } catch (e) { alert(e.message); }
+  load();
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+document.getElementById("prev").onclick = () => { current.setDate(current.getDate() - 1); load(); };
+document.getElementById("next").onclick = () => { current.setDate(current.getDate() + 1); load(); };
+document.getElementById("filters").onclick = e => {
+  if (!e.target.dataset.f) return;
+  filter = e.target.dataset.f; store.set("filter", filter); render();
+};
+const nameInput = document.getElementById("nameInput");
+nameInput.value = store.get("actorName") || "";
+nameInput.onchange = () => store.set("actorName", nameInput.value.trim());
+
+(async () => {
+  if (LIFF_ID && window.liff) {
+    try {
+      await liff.init({ liffId: LIFF_ID });
+      if (!liff.isLoggedIn()) { liff.login({ redirectUri: location.href }); return; }
+      idToken = liff.getIDToken();
+    } catch (e) { console.warn("LIFF init failed", e); }
+  }
+  if (!idToken) document.getElementById("nameBox").hidden = false; // ブラウザ利用時は名前を手入力
+  load();
+})();
+</script>
+</body>
+</html>

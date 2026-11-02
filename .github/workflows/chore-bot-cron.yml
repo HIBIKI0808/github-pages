@@ -1,0 +1,46 @@
+# 家事ボットの定期配信トリガー。
+# GitHub Actions の cron は UTC 指定（JST = UTC+9）。数分〜十数分遅れることがある。
+# リポジトリの Settings > Secrets and variables > Actions に以下を登録しておく:
+#   CHORE_BOT_URL         … 例 https://chore-bot-xxxx.onrender.com
+#   CHORE_BOT_CRON_SECRET … アプリの CRON_SECRET と同じ値
+name: chore-bot-cron
+
+on:
+  schedule:
+    - cron: "0 22 * * *"   # 毎朝 07:00 JST … 今日のタスク（毎日＋該当日の週次・月次）
+    - cron: "0 12 * * *"   # 毎晩 21:00 JST … 残りがあればリマインド
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: "morning or evening"
+        default: morning
+        required: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Call chore-bot
+        env:
+          URL: ${{ secrets.CHORE_BOT_URL }}
+          SECRET: ${{ secrets.CHORE_BOT_CRON_SECRET }}
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_KIND: ${{ github.event.inputs.kind }}
+        run: |
+          if [ -z "$URL" ] || [ -z "$SECRET" ]; then
+            echo "CHORE_BOT_URL / CHORE_BOT_CRON_SECRET が未設定のためスキップします"; exit 0
+          fi
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            KIND="$INPUT_KIND"
+          elif [ "$SCHEDULE" = "0 22 * * *" ]; then
+            KIND=morning
+          else
+            KIND=evening
+          fi
+          case "$KIND" in morning|evening) ;; *) echo "invalid kind: $KIND"; exit 1;; esac
+          # Render 無料枠はスリープから起きるのに最大1分ほどかかるので先に起こしておく
+          curl -sS --retry 5 --retry-delay 10 --retry-all-errors --max-time 90 "$URL/healthz" || true
+          curl -sS --fail-with-body --retry 3 --retry-delay 15 --retry-all-errors --max-time 90 \
+            -X POST -H "X-Cron-Secret: $SECRET" "$URL/cron/$KIND"
